@@ -1,0 +1,13 @@
+\\Mac\Home\Documents\Nhập môn CNPM\ManageProjectApp\ManageProjectApp\bin\Debug\ManageProjectApp.exe.config
+\\Mac\Home\Documents\Nhập môn CNPM\ManageProjectApp\ManageProjectApp\bin\Debug\ManageProjectApp.exe
+\\Mac\Home\Documents\Nhập môn CNPM\ManageProjectApp\ManageProjectApp\bin\Debug\ManageProjectApp.pdb
+\\Mac\Home\Documents\Nhập môn CNPM\ManageProjectApp\ManageProjectApp\obj\Debug\ManageProjectApp.csproj.AssemblyReference.cache
+\\Mac\Home\Documents\Nhập môn CNPM\ManageProjectApp\ManageProjectApp\obj\Debug\ManageProjectApp.csproj.SuggestedBindingRedirects.cache
+\\Mac\Home\Documents\Nhập môn CNPM\ManageProjectApp\ManageProjectApp\obj\Debug\ManageProjectApp.Form1.resources
+\\Mac\Home\Documents\Nhập môn CNPM\ManageProjectApp\ManageProjectApp\obj\Debug\ManageProjectApp.Properties.Resources.resources
+\\Mac\Home\Documents\Nhập môn CNPM\ManageProjectApp\ManageProjectApp\obj\Debug\ManageProjectApp.csproj.GenerateResource.cache
+\\Mac\Home\Documents\Nhập môn CNPM\ManageProjectApp\ManageProjectApp\obj\Debug\ManageProjectApp.csproj.CoreCompileInputs.cache
+\\Mac\Home\Documents\Nhập môn CNPM\ManageProjectApp\ManageProjectApp\obj\Debug\ManageProjectApp.exe
+\\Mac\Home\Documents\Nhập môn CNPM\ManageProjectApp\ManageProjectApp\obj\Debug\ManageProjectApp.pdb
+\\Mac\Home\Documents\Nhập môn CNPM\ManageProjectApp\ManageProjectApp\obj\Debug\ManageProjectApp.FormCreateNewSpace1.resources
+\\Mac\Home\Documents\Nhập môn CNPM\ManageProjectApp\ManageProjectApp\obj\Debug\ManageProjectApp.FormCreateNewSpace2.resources
