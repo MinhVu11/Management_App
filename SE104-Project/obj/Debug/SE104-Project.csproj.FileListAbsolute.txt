@@ -1,0 +1,15 @@
+D:\SE104-Project\bin\Debug\SE104-Project.exe
+D:\SE104-Project\bin\Debug\SE104-Project.pdb
+D:\SE104-Project\obj\Debug\SE104-Project.csproj.AssemblyReference.cache
+D:\SE104-Project\obj\Debug\SE104_Project.Login.resources
+D:\SE104-Project\obj\Debug\SE104_Project.Properties.Resources.resources
+D:\SE104-Project\obj\Debug\SE104-Project.csproj.GenerateResource.cache
+D:\SE104-Project\obj\Debug\SE104-Project.csproj.CoreCompileInputs.cache
+D:\SE104-Project\obj\Debug\SE104-Project.exe
+D:\SE104-Project\obj\Debug\SE104-Project.pdb
+D:\SE104-Project\obj\Debug\SE104_Project.RegisterAccount.resources
+D:\SE104-Project\obj\Debug\SE104_Project.FogotPassword.resources
+D:\SE104-Project\obj\Debug\SE104_Project.Workspace.resources
+D:\SE104-Project\obj\Debug\ManageProjectApp.FormCreateNewSpace1.resources
+D:\SE104-Project\obj\Debug\ManageProjectApp.FormCreateNewSpace2.resources
+D:\SE104-Project\obj\Debug\SE104_Project.LoginWorspace.resources
