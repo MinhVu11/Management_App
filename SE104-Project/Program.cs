@@ -15,7 +15,7 @@ namespace SE104_Project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Workspace());
+            Application.Run(new FWorkspace());
         }
     }
 }

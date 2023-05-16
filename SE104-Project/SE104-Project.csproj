@@ -44,11 +44,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FogotPassword.cs">
+    <Compile Include="FCreateWorkspace.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FogotPassword.Designer.cs">
-      <DependentUpon>FogotPassword.cs</DependentUpon>
+    <Compile Include="FCreateWorkspace.Designer.cs">
+      <DependentUpon>FCreateWorkspace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FFogotPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FFogotPassword.Designer.cs">
+      <DependentUpon>FFogotPassword.cs</DependentUpon>
     </Compile>
     <Compile Include="Form2.cs">
       <SubType>Form</SubType>
@@ -62,35 +68,39 @@
     <Compile Include="FormCreateNewSpace2.Designer.cs">
       <DependentUpon>FormCreateNewSpace2.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginWorspace.cs">
+    <Compile Include="FLoginWorspace.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginWorspace.Designer.cs">
-      <DependentUpon>LoginWorspace.cs</DependentUpon>
+    <Compile Include="FLoginWorspace.Designer.cs">
+      <DependentUpon>FLoginWorspace.cs</DependentUpon>
     </Compile>
-    <Compile Include="RegisterAccount.cs">
+    <Compile Include="FRegisterAccount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RegisterAccount.Designer.cs">
-      <DependentUpon>RegisterAccount.cs</DependentUpon>
+    <Compile Include="FRegisterAccount.Designer.cs">
+      <DependentUpon>FRegisterAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="SQLHandler.cs" />
-    <Compile Include="Login.cs">
+    <Compile Include="FLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+    <Compile Include="FLogin.Designer.cs">
+      <DependentUpon>FLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Workspace.cs">
+    <Compile Include="FWorkspace.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Workspace.Designer.cs">
-      <DependentUpon>Workspace.cs</DependentUpon>
+    <Compile Include="FWorkspace.Designer.cs">
+      <DependentUpon>FWorkspace.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FogotPassword.resx">
-      <DependentUpon>FogotPassword.cs</DependentUpon>
+    <Compile Include="Workspace.cs" />
+    <EmbeddedResource Include="FCreateWorkspace.resx">
+      <DependentUpon>FCreateWorkspace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FFogotPassword.resx">
+      <DependentUpon>FFogotPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
@@ -98,11 +108,11 @@
     <EmbeddedResource Include="FormCreateNewSpace2.resx">
       <DependentUpon>FormCreateNewSpace2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="FLogin.resx">
+      <DependentUpon>FLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginWorspace.resx">
-      <DependentUpon>LoginWorspace.cs</DependentUpon>
+    <EmbeddedResource Include="FLoginWorspace.resx">
+      <DependentUpon>FLoginWorspace.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -113,11 +123,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="RegisterAccount.resx">
-      <DependentUpon>RegisterAccount.cs</DependentUpon>
+    <EmbeddedResource Include="FRegisterAccount.resx">
+      <DependentUpon>FRegisterAccount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Workspace.resx">
-      <DependentUpon>Workspace.cs</DependentUpon>
+    <EmbeddedResource Include="FWorkspace.resx">
+      <DependentUpon>FWorkspace.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

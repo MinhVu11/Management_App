@@ -14,7 +14,7 @@ namespace SE104_Project
         SqlConnection connection;
         SqlCommand command;
         SqlDataAdapter adapter;
-        DataTable dataTable=new DataTable();
+        DataTable dataTable;
         private SQLHandler(string connectionString)
         {
             this.connectionString = connectionString;
@@ -42,6 +42,7 @@ namespace SE104_Project
         public DataTable GetData(string query)
         {
             connection.Open();
+            dataTable=new DataTable();
             adapter = new SqlDataAdapter(query,connection);
             adapter.Fill(dataTable);
             connection.Close();
