@@ -38,27 +38,32 @@ namespace SE104_Project
                 Button btn = new Button();
                 btn.Text = workspace.Workspace_name;
                 btn.BackColor=Color.FromArgb(255,255,255);
+                btn.Tag = workspace.Workspace_id;
                 btn.Click += btnWorkspace_Click;
                 flpWorkspaces.Controls.Add(btn);
             }
-        }
-        private void btnWorkspace_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.OK;
-        }
-
-        private void llbCreateNewWS_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            FCreateWorkspace fcws=new FCreateWorkspace();
-            if(fcws.ShowDialog(Owner) == DialogResult.OK)
-            {
-
-            }
-        }
+        } 
 
         private void FLoginWorspace_Load(object sender, EventArgs e)
         {
+
             LoadWorkspaces();
+        }
+      
+        private void llbCreateNewWS_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FCreateWorkspace fcws=new FCreateWorkspace();
+            if(fcws.ShowDialog() == DialogResult.OK)
+            {
+                LoadWorkspaces();
+            }
+        }
+        
+        private void btnWorkspace_Click(object sender, EventArgs e)
+        {
+            Button btn=(Button)sender;
+            FWorkspace.Workspace_id = (int)btn.Tag;
+            DialogResult = DialogResult.OK;
         }
     }
 }

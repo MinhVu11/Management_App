@@ -40,7 +40,7 @@
             this.lbSignUp.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lbSignUp.Location = new System.Drawing.Point(293, 9);
             this.lbSignUp.Name = "lbSignUp";
-            this.lbSignUp.Size = new System.Drawing.Size(144, 33);
+            this.lbSignUp.Size = new System.Drawing.Size(139, 32);
             this.lbSignUp.TabIndex = 2;
             this.lbSignUp.Text = "Welcome";
             // 
@@ -74,6 +74,7 @@
             this.Controls.Add(this.lbSignUp);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FLoginWorspace";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginWorspace";
             this.Load += new System.EventHandler(this.FLoginWorspace_Load);
             this.ResumeLayout(false);

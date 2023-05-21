@@ -28,140 +28,175 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FWorkspace));
             this.pnHead = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pnBody = new System.Windows.Forms.Panel();
+            this.pnMain = new System.Windows.Forms.Panel();
+            this.pnSlideBar = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnDashboard = new System.Windows.Forms.Button();
+            this.flpSpace = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnSpace = new System.Windows.Forms.Button();
+            this.pn = new System.Windows.Forms.Panel();
+            this.btnMaximize = new System.Windows.Forms.Button();
+            this.btnMinimize = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.flowLayoutPanelMenu = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panelSpace = new System.Windows.Forms.Panel();
-            this.flowLayoutPanelSpaces = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonCreateNewSpace = new System.Windows.Forms.Button();
-            this.buttonSpaces = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.pnHead.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.flowLayoutPanelMenu.SuspendLayout();
-            this.panelSpace.SuspendLayout();
+            this.pnBody.SuspendLayout();
+            this.pnSlideBar.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnHead
             // 
             this.pnHead.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(54)))), ((int)(((byte)(55)))));
-            this.pnHead.Controls.Add(this.pictureBox1);
+            this.pnHead.Controls.Add(this.btnMaximize);
+            this.pnHead.Controls.Add(this.btnMinimize);
             this.pnHead.Controls.Add(this.btnExit);
             this.pnHead.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnHead.Location = new System.Drawing.Point(0, 0);
             this.pnHead.Name = "pnHead";
-            this.pnHead.Size = new System.Drawing.Size(800, 33);
+            this.pnHead.Size = new System.Drawing.Size(800, 30);
             this.pnHead.TabIndex = 0;
+            this.pnHead.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnHead_MouseDown);
+            this.pnHead.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnHead_MouseMove);
+            this.pnHead.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnHead_MouseUp);
             // 
-            // pictureBox1
+            // pnBody
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.pnBody.Controls.Add(this.pnMain);
+            this.pnBody.Controls.Add(this.pnSlideBar);
+            this.pnBody.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnBody.Location = new System.Drawing.Point(0, 30);
+            this.pnBody.Name = "pnBody";
+            this.pnBody.Size = new System.Drawing.Size(800, 420);
+            this.pnBody.TabIndex = 2;
+            // 
+            // pnMain
+            // 
+            this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnMain.ForeColor = System.Drawing.Color.White;
+            this.pnMain.Location = new System.Drawing.Point(210, 0);
+            this.pnMain.Name = "pnMain";
+            this.pnMain.Size = new System.Drawing.Size(590, 420);
+            this.pnMain.TabIndex = 1;
+            this.pnMain.Resize += new System.EventHandler(this.pnMain_Resize);
+            // 
+            // pnSlideBar
+            // 
+            this.pnSlideBar.BackColor = System.Drawing.Color.LightSlateGray;
+            this.pnSlideBar.Controls.Add(this.button2);
+            this.pnSlideBar.Controls.Add(this.btnDashboard);
+            this.pnSlideBar.Controls.Add(this.flpSpace);
+            this.pnSlideBar.Controls.Add(this.btnSpace);
+            this.pnSlideBar.Controls.Add(this.pn);
+            this.pnSlideBar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnSlideBar.Location = new System.Drawing.Point(0, 0);
+            this.pnSlideBar.Name = "pnSlideBar";
+            this.pnSlideBar.Size = new System.Drawing.Size(210, 420);
+            this.pnSlideBar.TabIndex = 0;
+            // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.Location = new System.Drawing.Point(0, 170);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(210, 35);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Setting";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // btnDashboard
+            // 
+            this.btnDashboard.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDashboard.Location = new System.Drawing.Point(0, 135);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(210, 35);
+            this.btnDashboard.TabIndex = 3;
+            this.btnDashboard.Text = "Dashboard";
+            this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            // 
+            // flpSpace
+            // 
+            this.flpSpace.BackColor = System.Drawing.Color.SteelBlue;
+            this.flpSpace.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flpSpace.Location = new System.Drawing.Point(0, 135);
+            this.flpSpace.Name = "flpSpace";
+            this.flpSpace.Size = new System.Drawing.Size(210, 0);
+            this.flpSpace.TabIndex = 2;
+            // 
+            // btnSpace
+            // 
+            this.btnSpace.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSpace.Location = new System.Drawing.Point(0, 100);
+            this.btnSpace.Name = "btnSpace";
+            this.btnSpace.Size = new System.Drawing.Size(210, 35);
+            this.btnSpace.TabIndex = 1;
+            this.btnSpace.Text = "Space";
+            this.btnSpace.UseVisualStyleBackColor = true;
+            this.btnSpace.Click += new System.EventHandler(this.btnSpace_Click);
+            // 
+            // pn
+            // 
+            this.pn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pn.Location = new System.Drawing.Point(0, 0);
+            this.pn.Name = "pn";
+            this.pn.Size = new System.Drawing.Size(210, 100);
+            this.pn.TabIndex = 0;
+            // 
+            // btnMaximize
+            // 
+            this.btnMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMaximize.BackColor = System.Drawing.Color.White;
+            this.btnMaximize.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnMaximize.Image = global::SE104_Project.Properties.Resources.ic;
+            this.btnMaximize.Location = new System.Drawing.Point(746, 3);
+            this.btnMaximize.Name = "btnMaximize";
+            this.btnMaximize.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnMaximize.Size = new System.Drawing.Size(24, 24);
+            this.btnMaximize.TabIndex = 3;
+            this.btnMaximize.UseVisualStyleBackColor = false;
+            this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
+            // 
+            // btnMinimize
+            // 
+            this.btnMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMinimize.BackColor = System.Drawing.Color.White;
+            this.btnMinimize.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnMinimize.Image = global::SE104_Project.Properties.Resources.mm;
+            this.btnMinimize.Location = new System.Drawing.Point(719, 3);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(24, 24);
+            this.btnMinimize.TabIndex = 2;
+            this.btnMinimize.UseVisualStyleBackColor = false;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
             // btnExit
             // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExit.BackColor = System.Drawing.Color.White;
-            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.Location = new System.Drawing.Point(766, 6);
+            this.btnExit.Image = global::SE104_Project.Properties.Resources.exit;
+            this.btnExit.Location = new System.Drawing.Point(773, 3);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(22, 22);
+            this.btnExit.Size = new System.Drawing.Size(24, 24);
             this.btnExit.TabIndex = 0;
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // flowLayoutPanelMenu
-            // 
-            this.flowLayoutPanelMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanelMenu.Controls.Add(this.panel1);
-            this.flowLayoutPanelMenu.Controls.Add(this.panelSpace);
-            this.flowLayoutPanelMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.flowLayoutPanelMenu.Location = new System.Drawing.Point(0, 33);
-            this.flowLayoutPanelMenu.Margin = new System.Windows.Forms.Padding(4);
-            this.flowLayoutPanelMenu.Name = "flowLayoutPanelMenu";
-            this.flowLayoutPanelMenu.Size = new System.Drawing.Size(267, 417);
-            this.flowLayoutPanelMenu.TabIndex = 1;
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(267, 74);
-            this.panel1.TabIndex = 0;
-            // 
-            // panelSpace
-            // 
-            this.panelSpace.Controls.Add(this.flowLayoutPanelSpaces);
-            this.panelSpace.Controls.Add(this.buttonCreateNewSpace);
-            this.panelSpace.Controls.Add(this.buttonSpaces);
-            this.panelSpace.Location = new System.Drawing.Point(0, 74);
-            this.panelSpace.Margin = new System.Windows.Forms.Padding(0);
-            this.panelSpace.Name = "panelSpace";
-            this.panelSpace.Size = new System.Drawing.Size(267, 51);
-            this.panelSpace.TabIndex = 1;
-            // 
-            // flowLayoutPanelSpaces
-            // 
-            this.flowLayoutPanelSpaces.Location = new System.Drawing.Point(0, 102);
-            this.flowLayoutPanelSpaces.Margin = new System.Windows.Forms.Padding(4);
-            this.flowLayoutPanelSpaces.Name = "flowLayoutPanelSpaces";
-            this.flowLayoutPanelSpaces.Size = new System.Drawing.Size(267, 12);
-            this.flowLayoutPanelSpaces.TabIndex = 2;
-            // 
-            // buttonCreateNewSpace
-            // 
-            this.buttonCreateNewSpace.Location = new System.Drawing.Point(33, 67);
-            this.buttonCreateNewSpace.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonCreateNewSpace.Name = "buttonCreateNewSpace";
-            this.buttonCreateNewSpace.Size = new System.Drawing.Size(197, 28);
-            this.buttonCreateNewSpace.TabIndex = 1;
-            this.buttonCreateNewSpace.Text = "+ New Space";
-            this.buttonCreateNewSpace.UseVisualStyleBackColor = true;
-            this.buttonCreateNewSpace.Click += new System.EventHandler(this.buttonCreateNewSpace_Click);
-            // 
-            // buttonSpaces
-            // 
-            this.buttonSpaces.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonSpaces.Location = new System.Drawing.Point(0, 0);
-            this.buttonSpaces.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonSpaces.Name = "buttonSpaces";
-            this.buttonSpaces.Size = new System.Drawing.Size(267, 51);
-            this.buttonSpaces.TabIndex = 0;
-            this.buttonSpaces.Text = "Spaces";
-            this.buttonSpaces.UseVisualStyleBackColor = true;
-            this.buttonSpaces.Click += new System.EventHandler(this.buttonSpaces_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(267, 33);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(533, 417);
-            this.panel2.TabIndex = 2;
-            // 
-            // Workspace
+            // FWorkspace
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.flowLayoutPanelMenu);
+            this.Controls.Add(this.pnBody);
             this.Controls.Add(this.pnHead);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Workspace";
+            this.Name = "FWorkspace";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Workspace";
             this.Load += new System.EventHandler(this.Workspace_Load);
             this.pnHead.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.flowLayoutPanelMenu.ResumeLayout(false);
-            this.panelSpace.ResumeLayout(false);
+            this.pnBody.ResumeLayout(false);
+            this.pnSlideBar.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -170,14 +205,16 @@
 
         private System.Windows.Forms.Panel pnHead;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelMenu;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panelSpace;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelSpaces;
-        private System.Windows.Forms.Button buttonCreateNewSpace;
-        private System.Windows.Forms.Button buttonSpaces;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnBody;
+        private System.Windows.Forms.Panel pnMain;
+        private System.Windows.Forms.Panel pnSlideBar;
+        private System.Windows.Forms.Button btnSpace;
+        private System.Windows.Forms.Panel pn;
+        private System.Windows.Forms.FlowLayoutPanel flpSpace;
+        private System.Windows.Forms.Button btnMinimize;
+        private System.Windows.Forms.Button btnMaximize;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnDashboard;
     }
 }
 

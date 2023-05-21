@@ -5,7 +5,9 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Net.Mail;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace SE104_Project
 {
@@ -37,8 +39,19 @@ namespace SE104_Project
             }
             else
             {
-                SQLHandler.Instance.ExcuteNonQuery($"Insert into Users(User_fullname,User_name,User_password,User_email) values('{tbUserName.Text}','{tbUserName.Text}','{tbPassword.Text}','{tbEmail.Text}')");
-                DialogResult = DialogResult.OK;
+                try
+                {
+                    MailAddress mailAddress = new MailAddress(tbEmail.Text);
+                    Console.WriteLine($"{tbEmail.Text} is a valid email address.");
+                    SQLHandler.Instance.ExcuteNonQuery($"Insert into Users(User_fullname,User_name,User_password,User_email) values('{tbUserName.Text}','{tbUserName.Text}','{tbPassword.Text}','{tbEmail.Text}')");
+                    DialogResult = DialogResult.OK;
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show($"{tbEmail.Text} is not a valid email address.");
+                   
+                }
+                
             }
         }
 

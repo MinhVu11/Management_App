@@ -11,6 +11,21 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +46,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -49,6 +69,12 @@
     </Compile>
     <Compile Include="FCreateWorkspace.Designer.cs">
       <DependentUpon>FCreateWorkspace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FDashboard.Designer.cs">
+      <DependentUpon>FDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="FFogotPassword.cs">
       <SubType>Form</SubType>
@@ -80,6 +106,13 @@
     <Compile Include="FRegisterAccount.Designer.cs">
       <DependentUpon>FRegisterAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="FSpace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FSpace.Designer.cs">
+      <DependentUpon>FSpace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Space.cs" />
     <Compile Include="SQLHandler.cs" />
     <Compile Include="FLogin.cs">
       <SubType>Form</SubType>
@@ -99,6 +132,9 @@
     <EmbeddedResource Include="FCreateWorkspace.resx">
       <DependentUpon>FCreateWorkspace.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FDashboard.resx">
+      <DependentUpon>FDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FFogotPassword.resx">
       <DependentUpon>FFogotPassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,14 +150,18 @@
     <EmbeddedResource Include="FLoginWorspace.resx">
       <DependentUpon>FLoginWorspace.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FSpace.resx">
+      <DependentUpon>FSpace.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="FRegisterAccount.resx">
       <DependentUpon>FRegisterAccount.cs</DependentUpon>
@@ -138,6 +178,70 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lockicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maximizeicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maxmiz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maxm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\max.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mini.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\product classification.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kotlers-product-classification-system-Based-on-18.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo project.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\modern-flat-design-form-login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pslogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

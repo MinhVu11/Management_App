@@ -1,21 +1,32 @@
 create database SE104
 use SE104
 
-select * from membership where user_id =1
-Select TOP 1 * from Workspace Order by Workspace_id DESC 
-select * from users
-select * from workspace
-select * from membership
 drop table membership
 drop table meeting
 drop table groupSchedule
 drop table groupMembers
+drop table Space_Group
 drop table groups
 drop table PersonalSchedule
 drop table Task
 drop table Project
+drop table Workspace_Space
+drop table Spaces
 drop table users
 drop table WorkSpace
+
+Select * from Workspace_Space,Spaces where Workspace_Space.Space_id=Spaces.Space_id and Workspace_id=4 and Spaces.Space_type='public'
+
+Select Spaces.* from Workspace_Space,Spaces,Membership where MemberShip.Workspace_id = Workspace_Space.Workspace_id and Workspace_Space.Space_id=Spaces.Space_id and Workspace_id=4 and MemberShip.User_id=1and Spaces.Space_type='private'
+
+SELECT Spaces.*
+FROM Workspace_Space, Spaces, Membership
+WHERE Membership.Workspace_id = Workspace_Space.Workspace_id
+    AND Workspace_Space.Space_id = Spaces.Space_id
+    AND Workspace_id = 4
+    AND Membership.User_id = 1
+    AND Spaces.Space_type = 'private'
+
 
 create table Workspace(
 	Workspace_id int identity(1,1) primary key,
@@ -27,6 +38,11 @@ create table Users(
 	User_name char(40) unique,
 	User_email char(40),
 	User_password char(40),
+)
+create table Spaces(
+	Space_id int identity(1,1) primary key,
+	Space_name char(50),
+	Space_type char(40),
 )
 create table Project(
 	Project_id int identity(1,1) primary key,
@@ -110,5 +126,19 @@ create table Meeting(
 	 FOREIGN KEY(User_id) REFERENCES Users(User_id),
 	 FOREIGN KEY(Workspace_id) REFERENCES Workspace(Workspace_id),
 	 PRIMARY KEY(User_id,Workspace_id),
+)
+create table Workspace_Space(
+	Workspace_id int,
+	Space_id int,
+	PRIMARY KEY(Workspace_id,Space_id),
+	FOREIGN KEY(Space_id) REFERENCES Spaces(Space_id),
+	FOREIGN KEY(Workspace_id) REFERENCES Workspace(Workspace_id)
+)
+create table Space_Group(
+	Space_id int,
+	Group_id int,
+	PRIMARY KEY(Space_id,Group_id),
+	FOREIGN KEY(Space_id) REFERENCES Spaces(Space_id),
+	FOREIGN KEY(Group_id) REFERENCES Groups(Group_id)
 )
 

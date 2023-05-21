@@ -29,3 +29,5 @@ C:\Users\USER\source\repos\Management_App\SE104-Project\obj\Debug\SE104-Project.
 C:\Users\USER\source\repos\Management_App\SE104-Project\obj\Debug\SE104-Project.exe
 C:\Users\USER\source\repos\Management_App\SE104-Project\obj\Debug\SE104-Project.pdb
 C:\Users\USER\source\repos\Management_App\SE104-Project\obj\Debug\SE104_Project.FCreateWorkspace.resources
+C:\Users\USER\source\repos\Management_App\SE104-Project\obj\Debug\SE104_Project.FDashboard.resources
+C:\Users\USER\source\repos\Management_App\SE104-Project\obj\Debug\SE104_Project.FSpace.resources

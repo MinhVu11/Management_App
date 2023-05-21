@@ -5,21 +5,15 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ManageProjectApp
+namespace SE104_Project
 {
-    public partial class FormCreateNewSpace2 : Form
+    public partial class FDashboard : Form
     {
-        public FormCreateNewSpace2()
+        public FDashboard()
         {
             InitializeComponent();
-        }
-
-        private void buttonNext_Click(object sender, EventArgs e)
-        {
-            Close();
         }
     }
 }
