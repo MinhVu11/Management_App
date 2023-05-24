@@ -8,9 +8,10 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>SE104_Project</RootNamespace>
     <AssemblyName>SE104-Project</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -21,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -30,6 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -56,23 +59,17 @@
     <Compile Include="FFogotPassword.Designer.cs">
       <DependentUpon>FFogotPassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormCreateNewSpace2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormCreateNewSpace2.Designer.cs">
-      <DependentUpon>FormCreateNewSpace2.cs</DependentUpon>
-    </Compile>
     <Compile Include="FLoginWorspace.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FLoginWorspace.Designer.cs">
       <DependentUpon>FLoginWorspace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FCreateNewSpace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FCreateNewSpace.Designer.cs">
+      <DependentUpon>FCreateNewSpace.cs</DependentUpon>
     </Compile>
     <Compile Include="FRegisterAccount.cs">
       <SubType>Form</SubType>
@@ -96,17 +93,14 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Workspace.cs" />
+    <EmbeddedResource Include="FCreateNewSpace.resx">
+      <DependentUpon>FCreateNewSpace.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FCreateWorkspace.resx">
       <DependentUpon>FCreateWorkspace.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FFogotPassword.resx">
       <DependentUpon>FFogotPassword.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormCreateNewSpace2.resx">
-      <DependentUpon>FormCreateNewSpace2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FLogin.resx">
       <DependentUpon>FLogin.cs</DependentUpon>
@@ -122,6 +116,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="FRegisterAccount.resx">
       <DependentUpon>FRegisterAccount.cs</DependentUpon>
@@ -129,6 +124,7 @@
     <EmbeddedResource Include="FWorkspace.resx">
       <DependentUpon>FWorkspace.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

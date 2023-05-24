@@ -1,5 +1,4 @@
-﻿using ManageProjectApp;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,30 +11,63 @@ namespace SE104_Project
 {
     public partial class FWorkspace : Form
     {
-        private bool isCollapseSpaces = false;
-        private int spaceNum = 0;
-        private int spaceHeight = 40;
+
+        private bool isHaveSpace = false;
         public static int User_id;
         public FWorkspace()
         {
             InitializeComponent();
-            initSpaces();
+            initSpacesList();
+            SubMenu();
         }
-        private void initSpaces()
-        {
-            List<string> spaces = new List<string>() { "Space 1", "Space 2", "Space 3", "Space 4" };
 
+        private void SubMenu() 
+        {
+            flSpacesList.Visible = false;
+        }
+        private void showSubMenu(Panel SubMenu)
+        {
+            if (SubMenu.Visible == false)
+            {
+                hideSubMenu();
+                SubMenu.Visible = true;
+            } 
+            else
+            {
+                SubMenu.Visible = false;
+            }
+        }
+
+        private void hideSubMenu()
+        {
+            if (flSpacesList.Visible == true)
+                flSpacesList.Visible = false;
+        }
+        private void initSpacesList()
+        {
+            List<string> spaces = new List<string>() { "Space 1", "Space 2", "Space 3", "Space 4", "Space 5","Space 6" };
+      
             foreach (var space in spaces)
             {
+                if (isHaveSpace == false)
+                    isHaveSpace = true;
                 Button btn = new Button();
                 btn.Text = space;
-                btn.Width = buttonSpaces.Width;
-                btn.Height = spaceHeight;
+                btn.Width = btnSpaces.Width;
+                btn.Height = 40;
                 btn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+                btn.ForeColor = Color.Black;
                 btn.Margin = new Padding(0, 0, 0, 0);
-                flowLayoutPanelSpaces.Height += spaceHeight;
-                flowLayoutPanelSpaces.Controls.Add(btn);
-                spaceNum++;
+                btn.BackColor = Color.White;
+                flSpacesList.Controls.Add(btn);
+            }
+            if (!isHaveSpace)
+            {
+                flSpacesList.Height = 60;
+            }
+            else
+            {
+                flSpacesList.Height = 200;
             }
 
         }
@@ -59,22 +91,39 @@ namespace SE104_Project
 
         private void buttonSpaces_Click(object sender, EventArgs e)
         {
-
-            if (isCollapseSpaces)
-            {
-                panelSpace.Height -= spaceNum * spaceHeight + buttonCreateNewSpace.Height + 20;
-                isCollapseSpaces = false;
-            }
-            else
-            {
-                panelSpace.Height += spaceNum * spaceHeight + buttonCreateNewSpace.Height + 20;
-                isCollapseSpaces = true;
-            }
+            showSubMenu(flSpacesList); 
+           
         }
         private void buttonCreateNewSpace_Click(object sender, EventArgs e)
         {
-            FormCreateNewSpace1 formCreateSpace1 = new FormCreateNewSpace1();
+            FCreateNewSpace formCreateSpace1 = new FCreateNewSpace();
             formCreateSpace1.ShowDialog();
+        }
+
+        private void panelLogo_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Space_Click(object sender, EventArgs e)
+        {
+            showSubMenu(flSpacesList);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FCreateNewSpace FormCreateSpace = new FCreateNewSpace();
+            FormCreateSpace.ShowDialog();
+        }
+
+        private void panelSpacesList_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelSideMenu_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
