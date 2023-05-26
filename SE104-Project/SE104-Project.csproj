@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SSDTUnitTestPath Condition="'$(SSDTUnitTestPath)' == ''">$(VsInstallRoot)\Common7\IDE\Extensions\Microsoft\SQLDB</SSDTUnitTestPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SSDTPath Condition="'$(SSDTPath)' == ''">$(VsInstallRoot)\Common7\IDE\Extensions\Microsoft\SQLDB\DAC</SSDTPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{99C19F2A-28EE-4487-AAFA-02DE05744433}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SE104_Project</RootNamespace>
+    <AssemblyName>SE104-Project</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FCreateWorkspace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FCreateWorkspace.Designer.cs">
+      <DependentUpon>FCreateWorkspace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FDashboard.Designer.cs">
+      <DependentUpon>FDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FFogotPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FFogotPassword.Designer.cs">
+      <DependentUpon>FFogotPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FCreateSpace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FCreateSpace.Designer.cs">
+      <DependentUpon>FCreateSpace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FLoginWorspace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FLoginWorspace.Designer.cs">
+      <DependentUpon>FLoginWorspace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FCreateTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FCreateTask.Designer.cs">
+      <DependentUpon>FCreateTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FTasks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FTasks.Designer.cs">
+      <DependentUpon>FTasks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRegisterAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRegisterAccount.Designer.cs">
+      <DependentUpon>FRegisterAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FSpace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FSpace.Designer.cs">
+      <DependentUpon>FSpace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Space.cs" />
+    <Compile Include="SQLHandler.cs" />
+    <Compile Include="FLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FLogin.Designer.cs">
+      <DependentUpon>FLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FWorkspace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FWorkspace.Designer.cs">
+      <DependentUpon>FWorkspace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Workspace.cs" />
+    <EmbeddedResource Include="FCreateWorkspace.resx">
+      <DependentUpon>FCreateWorkspace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FDashboard.resx">
+      <DependentUpon>FDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FFogotPassword.resx">
+      <DependentUpon>FFogotPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FCreateSpace.resx">
+      <DependentUpon>FCreateSpace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FLogin.resx">
+      <DependentUpon>FLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FLoginWorspace.resx">
+      <DependentUpon>FLoginWorspace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FCreateTask.resx">
+      <DependentUpon>FCreateTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FSpace.resx">
+      <DependentUpon>FSpace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FTasks.resx">
+      <DependentUpon>FTasks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="FRegisterAccount.resx">
+      <DependentUpon>FRegisterAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FWorkspace.resx">
+      <DependentUpon>FWorkspace.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lockicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maximizeicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maxmiz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maxm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\max.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mini.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\product classification.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kotlers-product-classification-system-Based-on-18.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo project.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\modern-flat-design-form-login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pslogo.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup Condition="$(VisualStudioVersion) == '17.0'">
+    <Reference Include="Microsoft.Data.Tools.Schema.Sql, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>$(SSDTPath)\Microsoft.Data.Tools.Schema.Sql.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Tools.Schema.Sql.UnitTesting, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>$(SSDTUnitTestPath)\Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>$(SSDTUnitTestPath)\Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <SsdtUnitTestVersion>3.1</SsdtUnitTestVersion>
+  </PropertyGroup>
+  <Import Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="$(VisualStudioVersion) != '15.0' And '$(SQLDBExtensionsRefPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="$(VisualStudioVersion) != '15.0' And '$(SQLDBExtensionsRefPath)' == ''" />
+</Project>
