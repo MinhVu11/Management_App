@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lbSignUp = new System.Windows.Forms.Label();
             this.tbWorkspaceName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnCreateWS = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.SuspendLayout();
             // 
             // lbSignUp
@@ -41,7 +43,7 @@
             this.lbSignUp.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lbSignUp.Location = new System.Drawing.Point(203, 26);
             this.lbSignUp.Name = "lbSignUp";
-            this.lbSignUp.Size = new System.Drawing.Size(144, 33);
+            this.lbSignUp.Size = new System.Drawing.Size(139, 32);
             this.lbSignUp.TabIndex = 3;
             this.lbSignUp.Text = "Welcome";
             // 
@@ -79,6 +81,12 @@
             this.btnCreateWS.UseVisualStyleBackColor = true;
             this.btnCreateWS.Click += new System.EventHandler(this.btnCreateWS_Click);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // FCreateWorkspace
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -92,6 +100,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FCreateWorkspace";
             this.Text = "FCreateWorkspace";
+            this.Load += new System.EventHandler(this.FCreateWorkspace_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -103,5 +112,6 @@
         private System.Windows.Forms.TextBox tbWorkspaceName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnCreateWS;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

@@ -30,5 +30,10 @@ namespace SE104_Project
                 DialogResult = DialogResult.OK;
             }
         }
+
+        private void FCreateWorkspace_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

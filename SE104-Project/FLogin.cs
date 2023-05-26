@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 
@@ -15,24 +10,24 @@ namespace SE104_Project
         public FLogin()
         {
             InitializeComponent();
-            tbPassword.PasswordChar= '*';
+            tbPassword.PasswordChar = '*';
         }
 
-   
+
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            DataTable data= new DataTable();
+            DataTable data = new DataTable();
             data = SQLHandler.Instance.GetData($"Select * from Users where User_name='{tbUserName.Text}'");
-            if(tbUserName.Text=="")
+            if (tbUserName.Text == "")
             {
                 MessageBox.Show("Please enter username!");
-            }    
-            else if(tbPassword.Text=="")
+            }
+            else if (tbPassword.Text == "")
             {
                 MessageBox.Show("Please enter password!");
-            }    
-            else if(data.Rows.Count==0)
+            }
+            else if (data.Rows.Count == 0)
             {
                 MessageBox.Show("User name is not exist!");
             }
@@ -47,7 +42,7 @@ namespace SE104_Project
                 DialogResult = DialogResult.OK;
 
             }
-           
+
         }
 
 

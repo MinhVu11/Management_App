@@ -26,6 +26,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -36,6 +37,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -45,6 +47,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup />
@@ -76,6 +79,12 @@
     <Compile Include="FDashboard.Designer.cs">
       <DependentUpon>FDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="FEditMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FEditMember.Designer.cs">
+      <DependentUpon>FEditMember.cs</DependentUpon>
+    </Compile>
     <Compile Include="FFogotPassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +115,36 @@
     <Compile Include="FRegisterAccount.Designer.cs">
       <DependentUpon>FRegisterAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="FSetting-US-People.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FSetting-US-People.Designer.cs">
+      <DependentUpon>FSetting-US-People.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FSetting-US-Profile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FSetting-US-Profile.Designer.cs">
+      <DependentUpon>FSetting-US-Profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FSetting-US-Setting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FSetting-US-Setting.Designer.cs">
+      <DependentUpon>FSetting-US-Setting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FSetting-US-Workspace.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FSetting-US-Workspace.Designer.cs">
+      <DependentUpon>FSetting-US-Workspace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FSetting.Designer.cs">
+      <DependentUpon>FSetting.cs</DependentUpon>
+    </Compile>
     <Compile Include="FSpace.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +174,9 @@
     <EmbeddedResource Include="FDashboard.resx">
       <DependentUpon>FDashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FEditMember.resx">
+      <DependentUpon>FEditMember.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FFogotPassword.resx">
       <DependentUpon>FFogotPassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -149,6 +191,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FLoginWorspace.resx">
       <DependentUpon>FLoginWorspace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FSetting-US-People.resx">
+      <DependentUpon>FSetting-US-People.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FSetting-US-Profile.resx">
+      <DependentUpon>FSetting-US-Profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FSetting-US-Setting.resx">
+      <DependentUpon>FSetting-US-Setting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FSetting-US-Workspace.resx">
+      <DependentUpon>FSetting-US-Workspace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FSetting.resx">
+      <DependentUpon>FSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FSpace.resx">
       <DependentUpon>FSpace.cs</DependentUpon>
@@ -169,6 +226,7 @@
     <EmbeddedResource Include="FWorkspace.resx">
       <DependentUpon>FWorkspace.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -242,6 +300,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pslogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

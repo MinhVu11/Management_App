@@ -1,4 +1,4 @@
-create database SE104
+﻿create database SE104
 use SE104
 
 drop table membership
@@ -15,19 +15,8 @@ drop table Spaces
 drop table users
 drop table WorkSpace
 
-Select * from Workspace_Space,Spaces where Workspace_Space.Space_id=Spaces.Space_id and Workspace_id=4 and Spaces.Space_type='public'
 
-Select Spaces.* from Workspace_Space,Spaces,Membership where MemberShip.Workspace_id = Workspace_Space.Workspace_id and Workspace_Space.Space_id=Spaces.Space_id and Workspace_id=4 and MemberShip.User_id=1and Spaces.Space_type='private'
-
-SELECT Spaces.*
-FROM Workspace_Space, Spaces, Membership
-WHERE Membership.Workspace_id = Workspace_Space.Workspace_id
-    AND Workspace_Space.Space_id = Spaces.Space_id
-    AND Workspace_id = 4
-    AND Membership.User_id = 1
-    AND Spaces.Space_type = 'private'
-
-
+SET DATEFORMAT dmy;
 create table Workspace(
 	Workspace_id int identity(1,1) primary key,
 	Workspace_name char(40)
@@ -37,6 +26,7 @@ create table Users(
 	User_fullname char(40),
 	User_name char(40) unique,
 	User_email char(40),
+	User_birthday date,
 	User_password char(40),
 )
 create table Spaces(
@@ -44,12 +34,13 @@ create table Spaces(
 	Space_name char(50),
 	Space_type char(40),
 )
+
 create table Project(
 	Project_id int identity(1,1) primary key,
 	Project_name char(40),
 	Project_description char(100),
-	WorkSpace_id int,
-	FOREIGN KEY(WorkSpace_id) REFERENCES WorkSpace(WorkSpace_id)
+	Space_id int,
+	FOREIGN KEY(Space_id) REFERENCES Spaces(Space_id)
 )
 
 create table Task(
@@ -141,4 +132,45 @@ create table Space_Group(
 	FOREIGN KEY(Space_id) REFERENCES Spaces(Space_id),
 	FOREIGN KEY(Group_id) REFERENCES Groups(Group_id)
 )
+
+-- Tạo trigger AFTER DELETE để cập nhật lại giá trị IDENTITY
+CREATE TRIGGER UpdateIdentity
+ON Users
+AFTER DELETE
+AS
+BEGIN
+    -- Kiểm tra xem có bản ghi nào bị xóa hay không
+    IF EXISTS(SELECT * FROM deleted)
+    BEGIN
+        -- Lấy giá trị IDENTITY cao nhất hiện tại
+        DECLARE @maxId INT;
+        SELECT @maxId = MAX(User_id) FROM Users;
+
+        -- Đặt lại giá trị seed cho cột IDENTITY
+        DBCC CHECKIDENT ('Users', RESEED, @maxId);
+    END;
+END;
+
+
+Insert into Users(User_fullname,User_name,User_password,User_email,User_birthday) values ('Dang Cong Phu','CongPhu',123456,'congphu1245@gmail.com','18/11/2003')
+Insert into Workspace(Workspace_name) values('HoneperdoWS')
+Insert into MemberShip values(1,1,'Admin')
+Insert into Users(User_fullname,User_name,User_password,User_email,User_birthday) values ('Do Trong Tuan','TrongTuan',123456,'trongtuan@gmail.com','21/11/2003')
+Insert into MemberShip values(2,1,'Member')
+Insert into Users(User_fullname,User_name,User_password,User_email,User_birthday) values ('Nguyen Huy Nghia','HuuNghia',123456,'HuuNghia@gmail.com','1/1/1996')
+Insert into MemberShip values(3,1,'Admin')
+Insert into Users(User_fullname,User_name,User_password,User_email,User_birthday) values ('Pham Van Tan','Van Tan',123456,'TanPham@gmail.com','24/12/2003')
+Insert into MemberShip values(4,1,'Member')
+Insert into Users(User_fullname,User_name,User_password,User_email,User_birthday) values ('Dang Thinh','DangThinh',123456,'DangThinh@gmail.com','5/5/2003')
+Insert into Users(User_fullname,User_name,User_password,User_email,User_birthday) values ('Do Trong Vu','TrongVu',123456,'TrongVu@gmail.com','26/5/2002')
+
+
+
+Select Users.*,Membership.Role from Users,MemberShip where MemberShip.User_id=Users.User_id and MemberShip.Workspace_id=1
+
+select * from users
+select * from Workspace
+select * from membership
+
+delete from membership where User_id=5 and Workspace_id=1
 

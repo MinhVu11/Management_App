@@ -1,12 +1,8 @@
 ﻿using ManageProjectApp;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Security.Permissions;
-using System.Text;
 using System.Windows.Forms;
 
 namespace SE104_Project
@@ -21,22 +17,21 @@ namespace SE104_Project
         public FWorkspace()
         {
             InitializeComponent();
-           
-            //initSpaces();
+
             tooglePanels();
 
         }
 
         private void Workspace_Load(object sender, EventArgs e)
-        { 
+        {
             FLogin lg = new FLogin();
-            if(lg.ShowDialog() == DialogResult.OK)
+            if (lg.ShowDialog() == DialogResult.OK)
             {
                 FLoginWorspace lgws = new FLoginWorspace();
                 if (lgws.ShowDialog() == DialogResult.OK)
                 {
                     Loadspaces();
-                }    
+                }
             }
 
         }
@@ -44,7 +39,7 @@ namespace SE104_Project
         private void Loadspaces()
         {
             // button new space
-            Button newspace=new Button();
+            Button newspace = new Button();
             newspace.Margin = new Padding(0, 0, 0, 0);
             newspace.Size = new Size(flpSpace.Width, 25);
             newspace.Text = "New";
@@ -80,11 +75,11 @@ namespace SE104_Project
             }
         }
 
-      
+
 
         private void tooglePanels()
         {
-            if(showPanelSpace)
+            if (showPanelSpace)
             {
                 int buttonCount = flpSpace.Controls.OfType<Button>().Count();
                 flpSpace.Height = 25 * buttonCount;
@@ -92,9 +87,9 @@ namespace SE104_Project
             else
             {
                 flpSpace.Height = 0;
-            } 
-                
-        }  
+            }
+
+        }
         public void Loadform(object Form)
         {
             if (this.pnMain.Controls.Count > 0)
@@ -107,18 +102,16 @@ namespace SE104_Project
             this.pnMain.Controls.Add(f);
             this.pnMain.Tag = f;
             f.Show();
-
-
         }
         private void btnSpace_Click(object sender, EventArgs e)
         {
             showPanelSpace = !showPanelSpace;
             tooglePanels();
         }
-        private void btnNewSpace_Click(object sender,EventArgs e)
+        private void btnNewSpace_Click(object sender, EventArgs e)
         {
-            FormCreateNewSpace1 f=new FormCreateNewSpace1();
-            f.ShowDialog();            
+            FormCreateNewSpace1 f = new FormCreateNewSpace1();
+            f.ShowDialog();
         }
         private void btnRealSpace_Click(object sender, EventArgs e)
         {
@@ -134,12 +127,12 @@ namespace SE104_Project
             if (WindowState == FormWindowState.Normal)
             {
                 WindowState = FormWindowState.Maximized;
-            }          
+            }
             else
             {
                 WindowState = FormWindowState.Normal;
-            }    
-                
+            }
+
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -174,6 +167,15 @@ namespace SE104_Project
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             Loadform(new FDashboard());
+        }
+
+        private void btnSetting_Click(object sender, EventArgs e)
+        {
+            FSetting fSetting = new FSetting();
+            if (fSetting.ShowDialog() == DialogResult.OK)
+            {
+
+            }
         }
     }
 }

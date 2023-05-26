@@ -57,10 +57,11 @@
             this.llbCreateNewWS.LinkColor = System.Drawing.Color.White;
             this.llbCreateNewWS.Location = new System.Drawing.Point(280, 367);
             this.llbCreateNewWS.Name = "llbCreateNewWS";
-            this.llbCreateNewWS.Size = new System.Drawing.Size(205, 23);
+            this.llbCreateNewWS.Size = new System.Drawing.Size(219, 23);
             this.llbCreateNewWS.TabIndex = 7;
             this.llbCreateNewWS.TabStop = true;
             this.llbCreateNewWS.Text = "Create new workspace?";
+            this.llbCreateNewWS.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.llbCreateNewWS.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbCreateNewWS_LinkClicked);
             // 
             // FLoginWorspace

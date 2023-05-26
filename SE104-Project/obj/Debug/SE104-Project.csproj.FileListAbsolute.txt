@@ -31,3 +31,10 @@ C:\Users\USER\source\repos\Management_App\SE104-Project\obj\Debug\SE104-Project.
 C:\Users\USER\source\repos\Management_App\SE104-Project\obj\Debug\SE104_Project.FCreateWorkspace.resources
 C:\Users\USER\source\repos\Management_App\SE104-Project\obj\Debug\SE104_Project.FDashboard.resources
 C:\Users\USER\source\repos\Management_App\SE104-Project\obj\Debug\SE104_Project.FSpace.resources
+C:\Users\USER\source\repos\Management_App\SE104-Project\obj\Debug\SE104_Project.FSetting.resources
+C:\Users\USER\source\repos\Management_App\SE104-Project\bin\Debug\SE104-Project.exe.config
+C:\Users\USER\source\repos\Management_App\SE104-Project\obj\Debug\SE104_Project.FSetting_US_Setting.resources
+C:\Users\USER\source\repos\Management_App\SE104-Project\obj\Debug\SE104_Project.FSetting_US_People.resources
+C:\Users\USER\source\repos\Management_App\SE104-Project\obj\Debug\SE104_Project.FEditMember.resources
+C:\Users\USER\source\repos\Management_App\SE104-Project\obj\Debug\SE104_Project.FSetting_US_Profile.resources
+C:\Users\USER\source\repos\Management_App\SE104-Project\obj\Debug\SE104_Project.FSetting_US_Workspace.resources

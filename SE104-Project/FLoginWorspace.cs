@@ -40,6 +40,7 @@ namespace SE104_Project
                 btn.BackColor=Color.FromArgb(255,255,255);
                 btn.Tag = workspace.Workspace_id;
                 btn.Click += btnWorkspace_Click;
+                btn.Size = new Size(70,40);
                 flpWorkspaces.Controls.Add(btn);
             }
         } 
