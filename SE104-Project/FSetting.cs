@@ -11,10 +11,22 @@ namespace SE104_Project
 {
     public partial class FSetting : Form
     {
-        
+        private static FSetting instance;
         public FSetting()
         {
             InitializeComponent();
+        }
+        public static FSetting Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new FSetting();
+                }
+                return instance;
+            }
+
         }
         public void Loadpanel(object userControl)
         {
@@ -49,7 +61,15 @@ namespace SE104_Project
 
         private void btnWorkspace_Click(object sender, EventArgs e)
         {
-            Loadpanel(new FSetting_US_Workspace());
+            FSetting_US_Workspace f=new FSetting_US_Workspace();
+            f.ButtonClicked += btnBack_Click;
+            Loadpanel(f);
+            
+        }
+
+        public void btnBack_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
         }
     }
 }

@@ -30,6 +30,7 @@ namespace SE104_Project
                 FLoginWorspace lgws = new FLoginWorspace();
                 if (lgws.ShowDialog() == DialogResult.OK)
                 {
+                    // load anything here
                     Loadspaces();
                 }
             }
@@ -38,6 +39,10 @@ namespace SE104_Project
 
         private void Loadspaces()
         {
+            if(flpSpace.Controls.Count > 0)
+            {
+                flpSpace.Controls.Clear();
+            }
             // button new space
             Button newspace = new Button();
             newspace.Margin = new Padding(0, 0, 0, 0);
@@ -174,7 +179,8 @@ namespace SE104_Project
             FSetting fSetting = new FSetting();
             if (fSetting.ShowDialog() == DialogResult.OK)
             {
-
+                // load again 
+                Loadspaces();
             }
         }
     }

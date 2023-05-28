@@ -19,7 +19,7 @@ namespace SE104_Project
             tbUsername.Text = data.Rows[0]["User_name"].ToString().Trim();
             tbFullname.Text = data.Rows[0]["User_fullname"].ToString().Trim();
             tbEmail.Text = data.Rows[0]["User_email"].ToString().Trim();
-            tbPassword.Text = "Enter New Password";
+            tbPassword.Text = data.Rows[0]["User_password"].ToString().Trim();
             tbPassword.PasswordChar = '*';
             tbPassword.ForeColor = System.Drawing.Color.Gray;
         }
@@ -34,7 +34,7 @@ namespace SE104_Project
             {
                 MessageBox.Show("Enter full name");
             }
-            else if(tbPassword.Text=="Enter New Password"||tbPassword.Text=="")
+            else if(tbPassword.Text=="")
             {
                 MessageBox.Show("Enter Password");
             } 

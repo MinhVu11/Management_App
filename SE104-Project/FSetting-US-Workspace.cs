@@ -11,6 +11,7 @@ namespace SE104_Project
         Button AddNew = new Button();
         private int buttonHeight = 60;
         private int buttonWidth = 80;
+        public event EventHandler ButtonClicked;
         public FSetting_US_Workspace()
         {
             InitializeComponent();
@@ -32,6 +33,10 @@ namespace SE104_Project
         }
         void LoadWorkspaces()
         {
+            if (flpWorkspaces.Controls.Count > 0)
+            {
+                flpWorkspaces.Controls.Clear();
+            }
             List<Workspace> list = GetWorkspaces();
             foreach (Workspace workspace in list)
             {
@@ -39,7 +44,7 @@ namespace SE104_Project
                 btn.Text = workspace.Workspace_name;
                 btn.BackColor = Color.FromArgb(255, 255, 255);
                 btn.Tag = workspace.Workspace_id;
-                btn.DoubleClick += btnWorkspace_DoubleClick;
+                btn.Click += btnWorkspace_Click;
                 btn.Size = new Size(buttonWidth, buttonHeight);
                 btn.ForeColor = Color.FromArgb(0, 0, 0);
                 flpWorkspaces.Controls.Add(btn);
@@ -48,11 +53,11 @@ namespace SE104_Project
 
             flpWorkspaces.Controls.Add(AddNew);
         }
-        private void btnWorkspace_DoubleClick(object sender, EventArgs e)
+        private void btnWorkspace_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
             FWorkspace.Workspace_id = (int)btn.Tag;
-
+            ButtonClicked?.Invoke(this, EventArgs.Empty);
         }
         private void btnAddnew_Click(object sender, EventArgs e)
         {
@@ -82,7 +87,7 @@ namespace SE104_Project
             AddNew.TextAlign = ContentAlignment.MiddleCenter;
             AddNew.Click += btnAddnew_Click;
             AddNew.Cursor = Cursors.Hand;
-            AddNew.Size= new Size(buttonWidth, buttonHeight);   
+            AddNew.Size = new Size(buttonWidth, buttonHeight);
             AddNew.BackColor = Color.LightSteelBlue;
             AddNew.MouseEnter += Addnew_MouseEnter;
             AddNew.MouseLeave += Addnew_MouseLeave;

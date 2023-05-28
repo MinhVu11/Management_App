@@ -34,6 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnCreateWS = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbSignUp
@@ -87,12 +88,27 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // btnBack
+            // 
+            this.btnBack.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnBack.FlatAppearance.BorderSize = 2;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Location = new System.Drawing.Point(12, 12);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(77, 46);
+            this.btnBack.TabIndex = 9;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // FCreateWorkspace
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(50)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(657, 329);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnCreateWS);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbWorkspaceName);
@@ -113,5 +129,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnCreateWS;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Button btnBack;
     }
 }
