@@ -1,4 +1,5 @@
-﻿create database SE104
+﻿create DATABASE ManagementApp_DTB
+create database SE104
 use SE104
 
 drop table membership
@@ -15,12 +16,18 @@ drop table Spaces
 drop table users
 drop table WorkSpace
 
-
 SET DATEFORMAT dmy;
-create table Workspace(
-	Workspace_id int identity(1,1) primary key,
-	Workspace_name char(40)
+Create table Workspace (
+    Workspace_id int identity(1,1) PRIMARY KEY,
+    Workspace_name char(40)
 )
+Create table Space (
+    Space_id int identity(1,1) PRIMARY KEY,
+    Space_name char(40)
+	Space_type char(40),
+)
+
+
 create table Users(
 	User_id int identity(1,1) primary key,
 	User_fullname char(40),
@@ -29,36 +36,44 @@ create table Users(
 	User_birthday date,
 	User_password char(40),
 )
-create table Spaces(
-	Space_id int identity(1,1) primary key,
-	Space_name char(50),
-	Space_type char(40),
-)
 
+Create table Space_User(
+    Space_user_id int identity(1,1) Primary key,
+    Space_id int References Space(Space_id),
+    User_id int References Users(USer_id),
+    Role char(40),
+)
 create table Project(
 	Project_id int identity(1,1) primary key,
 	Project_name char(40),
 	Project_description char(100),
-	Space_id int,
-	FOREIGN KEY(Space_id) REFERENCES Spaces(Space_id)
+	WorkSpace_id int,
+	FOREIGN KEY(WorkSpace_id) REFERENCES WorkSpace(WorkSpace_id)
 )
 
 create table Task(
 	Task_id int identity(1,1) primary key,
 	Task_name char(40),
 	Task_description char(100),
-	Project_id int,
-	Task_due_date datetime,
 	Task_start_time datetime,
 	Task_end_time datetime,
 	Task_status char(40),
-	Assiged_user int,
-	FOREIGN KEY(Project_id) REFERENCES Project(Project_id),
-	FOREIGN KEY(Assiged_user) REFERENCES Users(User_id),
 )
 
-create table PersonalSchedule(
-	Event_id int identity(1,1) primary key,
+Create table Task_Space(
+	Task_Space_id int identity(1, 1) primary key,
+	Task_id int REFERENCES Task(Task_id),
+	Space_id int references Space(Space_id),
+)
+
+Create Table Assignment (
+    Assigment_id int identity(1,1) Primary key,
+    Task_id int References Task(Task_id),
+    User_id int References Users(User_id)
+)
+
+Create table Personal_Schedule (
+    Event_id int identity(1,1) primary key,
 	Event_name char(40),
 	Event_description char(100),
 	Event_start_time datetime,
@@ -72,20 +87,22 @@ create table Groups(
 	Group_name char(40),
 	Group_description char(100),
 	Group_admin int,
-	User_id int,
-	FOREIGN KEY(User_id) REFERENCES Users(User_id),
 	FOREIGN KEY(Group_admin) REFERENCES Users(User_id),
 )
 
-create table GroupMembers(
-	Group_id INT,
-	User_id INT,
-	role VARCHAR(255),
-	PRIMARY KEY (Group_id, User_id),
-	FOREIGN KEY (Group_id) REFERENCES Groups(Group_id),
-	FOREIGN KEY (User_id) REFERENCES Users(User_id)
+Create table MemberShip(
+    Membership_id int identity(1,1) Primary key,
+    User_id int REFERENCES Users(User_id),
+    Group_id int REFERENCES Groups(Group_id),
 )
 
+create table Space_Group (
+    Space_Group_id int identity(1,1) Primary key,
+    Space_id int,
+	Group_id int,
+	FOREIGN KEY(Space_id) REFERENCES Space(Space_id),
+	FOREIGN KEY(Group_id) REFERENCES Groups(Group_id)
+)
 
 create table GroupSchedule(
 	Event_id int identity(1,1) primary key,
@@ -99,38 +116,16 @@ create table GroupSchedule(
 
 create table Meeting(
 	Meeting_id int identity(1,1) primary key,
+    Group_id int,
 	Meeting_name char(40),
 	Meeting_description char(100),
 	Meeting_start_time datetime,
 	Meeting_end_time datetime,
 	Organizer_id int,
 	Meeting_status char(40),
-	Group_id int,
 	Agenda char(500),
 	FOREIGN KEY(Group_id) REFERENCES Groups(Group_id),
 	FOREIGN KEY(Organizer_id) REFERENCES Users(User_id),
-)
- create table MemberShip(
-	 User_id int,
-	 Workspace_id int,
-	 role varchar(40),
-	 FOREIGN KEY(User_id) REFERENCES Users(User_id),
-	 FOREIGN KEY(Workspace_id) REFERENCES Workspace(Workspace_id),
-	 PRIMARY KEY(User_id,Workspace_id),
-)
-create table Workspace_Space(
-	Workspace_id int,
-	Space_id int,
-	PRIMARY KEY(Workspace_id,Space_id),
-	FOREIGN KEY(Space_id) REFERENCES Spaces(Space_id),
-	FOREIGN KEY(Workspace_id) REFERENCES Workspace(Workspace_id)
-)
-create table Space_Group(
-	Space_id int,
-	Group_id int,
-	PRIMARY KEY(Space_id,Group_id),
-	FOREIGN KEY(Space_id) REFERENCES Spaces(Space_id),
-	FOREIGN KEY(Group_id) REFERENCES Groups(Group_id)
 )
 
 -- Tạo trigger AFTER DELETE để cập nhật lại giá trị IDENTITY

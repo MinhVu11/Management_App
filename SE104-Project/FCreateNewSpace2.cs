@@ -7,19 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms;
 
 namespace ManageProjectApp
 {
-    public partial class FormCreateNewSpace1 : Form
+    public partial class FCreateNewSpace2 : Form
     {
-        public FormCreateNewSpace1()
+        public FCreateNewSpace2()
         {
             InitializeComponent();
         }
-        private void buttonNext1_Click(object sender, EventArgs e)
+
+        private void buttonNext_Click(object sender, EventArgs e)
         {
-            FormCreateNewSpace2 f2 = new FormCreateNewSpace2();
-            f2.ShowDialog();
             this.Close();
         }
     }

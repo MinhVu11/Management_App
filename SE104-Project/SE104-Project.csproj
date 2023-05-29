@@ -1,5 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SSDTUnitTestPath Condition="'$(SSDTUnitTestPath)' == ''">$(VsInstallRoot)\Common7\IDE\Extensions\Microsoft\SQLDB</SSDTUnitTestPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SSDTPath Condition="'$(SSDTPath)' == ''">$(VsInstallRoot)\Common7\IDE\Extensions\Microsoft\SQLDB\DAC</SSDTPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -8,7 +17,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>SE104_Project</RootNamespace>
     <AssemblyName>SE104-Project</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <PublishUrl>publish\</PublishUrl>
@@ -91,23 +100,29 @@
     <Compile Include="FFogotPassword.Designer.cs">
       <DependentUpon>FFogotPassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="FCreateSpace.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormCreateNewSpace2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormCreateNewSpace2.Designer.cs">
-      <DependentUpon>FormCreateNewSpace2.cs</DependentUpon>
+    <Compile Include="FCreateSpace.Designer.cs">
+      <DependentUpon>FCreateSpace.cs</DependentUpon>
     </Compile>
     <Compile Include="FLoginWorspace.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FLoginWorspace.Designer.cs">
       <DependentUpon>FLoginWorspace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FCreateTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FCreateTask.Designer.cs">
+      <DependentUpon>FCreateTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FTasks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FTasks.Designer.cs">
+      <DependentUpon>FTasks.cs</DependentUpon>
     </Compile>
     <Compile Include="FRegisterAccount.cs">
       <SubType>Form</SubType>
@@ -180,11 +195,8 @@
     <EmbeddedResource Include="FFogotPassword.resx">
       <DependentUpon>FFogotPassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormCreateNewSpace2.resx">
-      <DependentUpon>FormCreateNewSpace2.cs</DependentUpon>
+    <EmbeddedResource Include="FCreateSpace.resx">
+      <DependentUpon>FCreateSpace.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FLogin.resx">
       <DependentUpon>FLogin.cs</DependentUpon>
@@ -209,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FSpace.resx">
       <DependentUpon>FSpace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FTasks.resx">
+      <DependentUpon>FTasks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -305,4 +320,9 @@
     <None Include="Resources\x_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <SsdtUnitTestVersion>3.1</SsdtUnitTestVersion>
+  </PropertyGroup>
+  <Import Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="$(VisualStudioVersion) != '15.0' And '$(SQLDBExtensionsRefPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="$(VisualStudioVersion) != '15.0' And '$(SQLDBExtensionsRefPath)' == ''" />
 </Project>

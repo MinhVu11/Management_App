@@ -110,13 +110,16 @@ namespace SE104_Project
         }
         private void btnSpace_Click(object sender, EventArgs e)
         {
+            /*
             showPanelSpace = !showPanelSpace;
             tooglePanels();
+            */
+            OpenChildForm(new FTasks());
         }
         private void btnNewSpace_Click(object sender, EventArgs e)
         {
-            FormCreateNewSpace1 f = new FormCreateNewSpace1();
-            f.ShowDialog();
+            FCreateSpace f=new FCreateSpace();
+            f.ShowDialog();            
         }
         private void btnRealSpace_Click(object sender, EventArgs e)
         {
@@ -174,14 +177,24 @@ namespace SE104_Project
             Loadform(new FDashboard());
         }
 
-        private void btnSetting_Click(object sender, EventArgs e)
+        // Open Child Form
+        private Form activeForm = null;
+        private void OpenChildForm(Form childForm)
         {
-            FSetting fSetting = new FSetting();
-            if (fSetting.ShowDialog() == DialogResult.OK)
-            {
-                // load again 
-                Loadspaces();
-            }
+            if (activeForm != null)
+                activeForm.Close();
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelChildForm.Controls.Add(childForm); 
+            panelChildForm.Tag = childForm;
+            childForm.Show();
+        }
+
+        private void btnCreateTask_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
