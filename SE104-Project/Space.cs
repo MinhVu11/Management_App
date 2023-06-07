@@ -34,33 +34,33 @@ namespace SE104_Project
         }
         public static List<Space> GetPublicSpace()
         {
-            List<Space> spacespublic = new List<Space>();
+            List<Space> Spacepublic = new List<Space>();
             DataTable data=new DataTable();
-            data = SQLHandler.Instance.GetData($"Select * from Workspace_Space,Spaces where Workspace_Space.Space_id=Spaces.Space_id and Workspace_id={FWorkspace.Workspace_id} and Spaces.Space_type='public'");
+            data = SQLHandler.Instance.GetData($"Select * from Workspace_Space,Space where Workspace_Space.Space_id=Space.Space_id and Workspace_id={FWorkspace.Workspace_id} and Space.Space_type='public'");
             foreach(DataRow item in data.Rows)
             {
                 int id = (int)item["Space_id"];
                 string name = item["Space_name"].ToString();
                 string type = item["Space_type"].ToString();
                 Space space= new Space(id, name, type);
-                spacespublic.Add(space);
+                Spacepublic.Add(space);
             }
-            return spacespublic;
+            return Spacepublic;
         }
         public static List<Space> GetPrivateSpace()
         {
-            List<Space> spacesprivate = new List<Space>();
+            List<Space> Spaceprivate = new List<Space>();
             DataTable data = new DataTable();
-            data = SQLHandler.Instance.GetData($"Select Spaces.* from Workspace_Space,Spaces,Membership where MemberShip.Workspace_id = Workspace_Space.Workspace_id and Workspace_Space.Space_id=Spaces.Space_id and MemberShip.Workspace_id={FWorkspace.Workspace_id} and MemberShip.User_id={FWorkspace.User_id} and Spaces.Space_type='private'");
+            data = SQLHandler.Instance.GetData($"Select Space.* from Space,Groups,Group_Member,Workspace_Space where Workspace_Space.Space_id=Space.Space_id and Groups.Group_id= Group_Member.Group_id and Workspace_Space.Space_id=Space.Space_id and Groups.Space_id=Space.Space_id and Workspace_Space.Workspace_id={FWorkspace.Workspace_id} and Space.Space_type='private' and Group_Member.User_id={FWorkspace.User_id} ");
             foreach (DataRow item in data.Rows)
             {
                 int id = (int)item["Space_id"];
                 string name = item["Space_name"].ToString();
                 string type = item["Space_type"].ToString();
                 Space space = new Space(id, name, type);
-                spacesprivate.Add(space);
+                Spaceprivate.Add(space);
             }
-            return spacesprivate;
+            return Spaceprivate;
         }
     }
 }

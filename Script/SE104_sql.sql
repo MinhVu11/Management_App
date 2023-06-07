@@ -2,17 +2,22 @@
 create database SE104
 use SE104
 
-drop table membership
-drop table meeting
-drop table groupSchedule
-drop table groupMembers
-drop table Space_Group
+SELECT TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_CATALOG = 'SE104';
+
+
+drop table Membership
+drop table Meeting
+drop table GroupSchedule
+drop table Group_Member
+drop table Assignment
 drop table groups
-drop table PersonalSchedule
+drop table Personal_Schedule
+drop table Task_Space
 drop table Task
-drop table Project
 drop table Workspace_Space
-drop table Spaces
+drop table Space
 drop table users
 drop table WorkSpace
 
@@ -23,11 +28,9 @@ Create table Workspace (
 )
 Create table Space (
     Space_id int identity(1,1) PRIMARY KEY,
-    Space_name char(40)
+    Space_name char(40),
 	Space_type char(40),
 )
-
-
 create table Users(
 	User_id int identity(1,1) primary key,
 	User_fullname char(40),
@@ -37,19 +40,6 @@ create table Users(
 	User_password char(40),
 )
 
-Create table Space_User(
-    Space_user_id int identity(1,1) Primary key,
-    Space_id int References Space(Space_id),
-    User_id int References Users(USer_id),
-    Role char(40),
-)
-create table Project(
-	Project_id int identity(1,1) primary key,
-	Project_name char(40),
-	Project_description char(100),
-	WorkSpace_id int,
-	FOREIGN KEY(WorkSpace_id) REFERENCES WorkSpace(WorkSpace_id)
-)
 
 create table Task(
 	Task_id int identity(1,1) primary key,
@@ -86,23 +76,36 @@ create table Groups(
 	Group_id int identity(1,1) primary key,
 	Group_name char(40),
 	Group_description char(100),
-	Group_admin int,
-	FOREIGN KEY(Group_admin) REFERENCES Users(User_id),
-)
-
-Create table MemberShip(
-    Membership_id int identity(1,1) Primary key,
-    User_id int REFERENCES Users(User_id),
-    Group_id int REFERENCES Groups(Group_id),
-)
-
-create table Space_Group (
-    Space_Group_id int identity(1,1) Primary key,
-    Space_id int,
-	Group_id int,
+	Space_id int,
 	FOREIGN KEY(Space_id) REFERENCES Space(Space_id),
-	FOREIGN KEY(Group_id) REFERENCES Groups(Group_id)
 )
+
+create table Group_Member(
+	Group_Member int identity(1,1) primary key,
+	Group_id int,
+	User_id int,
+	role char(50),
+	FOREIGN KEY(Group_id) REFERENCES Groups(Group_id),
+	FOREIGN KEY(User_id) REFERENCES Users(User_id)
+)
+
+create table Workspace_Space(
+	Workspace_id int,
+	Space_id int,
+	PRIMARY KEY(Workspace_id,Space_id),
+	FOREIGN KEY(Space_id) REFERENCES Space(Space_id),
+	FOREIGN KEY(Workspace_id) REFERENCES Workspace(Workspace_id)
+)
+
+ create table MemberShip(
+	 User_id int,
+	 Workspace_id int,
+	 role varchar(40),
+	 FOREIGN KEY(User_id) REFERENCES Users(User_id),
+	 FOREIGN KEY(Workspace_id) REFERENCES Workspace(Workspace_id),
+	 PRIMARY KEY(User_id,Workspace_id),
+)
+
 
 create table GroupSchedule(
 	Event_id int identity(1,1) primary key,
@@ -128,26 +131,8 @@ create table Meeting(
 	FOREIGN KEY(Organizer_id) REFERENCES Users(User_id),
 )
 
--- Tạo trigger AFTER DELETE để cập nhật lại giá trị IDENTITY
-CREATE TRIGGER UpdateIdentity
-ON Users
-AFTER DELETE
-AS
-BEGIN
-    -- Kiểm tra xem có bản ghi nào bị xóa hay không
-    IF EXISTS(SELECT * FROM deleted)
-    BEGIN
-        -- Lấy giá trị IDENTITY cao nhất hiện tại
-        DECLARE @maxId INT;
-        SELECT @maxId = MAX(User_id) FROM Users;
 
-        -- Đặt lại giá trị seed cho cột IDENTITY
-        DBCC CHECKIDENT ('Users', RESEED, @maxId);
-    END;
-END;
-
-
-Insert into Users(User_fullname,User_name,User_password,User_email,User_birthday) values ('Dang Cong Phu','CongPhu',123456,'congphu1245@gmail.com','18/11/2003')
+Insert into Users(User_fullname,User_name,User_password,User_email,User_birthday) values ('Dang Cong Phu','CongPhu',123456,'congphu@gmail.com','18/11/2003')
 Insert into Workspace(Workspace_name) values('HoneperdoWS')
 Insert into MemberShip values(1,1,'Admin')
 Insert into Users(User_fullname,User_name,User_password,User_email,User_birthday) values ('Do Trong Tuan','TrongTuan',123456,'trongtuan@gmail.com','21/11/2003')
@@ -158,14 +143,43 @@ Insert into Users(User_fullname,User_name,User_password,User_email,User_birthday
 Insert into MemberShip values(4,1,'Member')
 Insert into Users(User_fullname,User_name,User_password,User_email,User_birthday) values ('Dang Thinh','DangThinh',123456,'DangThinh@gmail.com','5/5/2003')
 Insert into Users(User_fullname,User_name,User_password,User_email,User_birthday) values ('Do Trong Vu','TrongVu',123456,'TrongVu@gmail.com','26/5/2002')
-
+Insert into Space(Space_name,Space_type) values ('space1','public')
+Insert into Space(Space_name,Space_type) values ('space2','private')
+Insert into Space(Space_name,Space_type) values ('space3','private')
+Insert into Space(Space_name,Space_type) values ('space4','private')
+Insert into Workspace_space values (1,1)
+Insert into Workspace_space values (1,2)
+Insert into Workspace_space values (1,3)
+Insert into Workspace_space values (1,4)
+Insert into Groups(Space_id) values(2)
+Insert into Groups(Space_id) values(3)
+Insert into Groups(Space_id) values(4)
+Insert into Group_Member(Group_id,User_id,role) values(1,1,'admin')
+Insert into Group_Member(Group_id,User_id,role) values(2,1,'member')
+Insert into Group_Member(Group_id,User_id,role) values(3,1,'member')
+Insert into Task values('Task1','Báo cáo dự án','2008-11-11 13:23:44','2008-11-12 13:23:44','Khẩn cấp')
+Insert into Task_Space values(1,1)
 
 
 Select Users.*,Membership.Role from Users,MemberShip where MemberShip.User_id=Users.User_id and MemberShip.Workspace_id=1
 
 select * from users
 select * from Workspace
+select * from Space
+select * from Groups
+select * from Group_Member
+select * from Workspace_space
 select * from membership
+select * from task
+select * from Task_Space
 
-delete from membership where User_id=5 and Workspace_id=1
+select users.* from MemberShip,users where users.User_id=MemberShip.User_id and Workspace_id=1
+Select Users.* from Users,Groups,Group_Member,Workspace_Space where  Groups.Group_id= Group_Member.Group_id and Workspace_Space.Space_id=2 and Groups.Space_id=2 and Workspace_Space.Workspace_id=1  and Group_Member.User_id=Users.User_id
+Select * from Workspace_Space,Space where Workspace_Space.Space_id=Space.Space_id and Workspace_id=1 and Space.Space_type='Public'
 
+
+SELECT Task_name AS Name, Task_description AS Description, Task_end_time AS "Due Date", Task_status AS Status
+FROM Task, Task_Space
+WHERE Task.Task_id = Task_Space.Task_id AND Space_id = 1;
+
+SELECT  Task.* from Task, Task_Space WHERE Task.Task_id = Task_Space.Task_id AND Space_id =1 and 

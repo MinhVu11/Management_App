@@ -76,6 +76,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Event.cs" />
     <Compile Include="FCreateWorkspace.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +94,12 @@
     </Compile>
     <Compile Include="FEditMember.Designer.cs">
       <DependentUpon>FEditMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FEditTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FEditTask.Designer.cs">
+      <DependentUpon>FEditTask.cs</DependentUpon>
     </Compile>
     <Compile Include="FFogotPassword.cs">
       <SubType>Form</SubType>
@@ -117,6 +124,18 @@
     </Compile>
     <Compile Include="FCreateTask.Designer.cs">
       <DependentUpon>FCreateTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FSpace-US-Calendar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FSpace-US-Calendar.Designer.cs">
+      <DependentUpon>FSpace-US-Calendar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FSpace-US-ToDoList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FSpace-US-ToDoList.Designer.cs">
+      <DependentUpon>FSpace-US-ToDoList.cs</DependentUpon>
     </Compile>
     <Compile Include="FTasks.cs">
       <SubType>Form</SubType>
@@ -182,7 +201,28 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="US-Blank.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="US-Blank.Designer.cs">
+      <DependentUpon>US-Blank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="US-CreateTask.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="US-CreateTask.Designer.cs">
+      <DependentUpon>US-CreateTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="US-Days.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="US-Days.Designer.cs">
+      <DependentUpon>US-Days.cs</DependentUpon>
+    </Compile>
     <Compile Include="Workspace.cs" />
+    <EmbeddedResource Include="FCreateTask.resx">
+      <DependentUpon>FCreateTask.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FCreateWorkspace.resx">
       <DependentUpon>FCreateWorkspace.cs</DependentUpon>
     </EmbeddedResource>
@@ -219,6 +259,12 @@
     <EmbeddedResource Include="FSetting.resx">
       <DependentUpon>FSetting.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FSpace-US-Calendar.resx">
+      <DependentUpon>FSpace-US-Calendar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FSpace-US-ToDoList.resx">
+      <DependentUpon>FSpace-US-ToDoList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FSpace.resx">
       <DependentUpon>FSpace.cs</DependentUpon>
     </EmbeddedResource>
@@ -240,6 +286,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FWorkspace.resx">
       <DependentUpon>FWorkspace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="US-Blank.resx">
+      <DependentUpon>US-Blank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="US-CreateTask.resx">
+      <DependentUpon>US-CreateTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="US-Days.resx">
+      <DependentUpon>US-Days.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
@@ -270,45 +325,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\exit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\maximizeicon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\maxmiz.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\maxm.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\max.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\minimize.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\mini.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\product classification.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Kotlers-product-classification-system-Based-on-18.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\logo project.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Logo.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\download.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\modern-flat-design-form-login.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ic.png" />

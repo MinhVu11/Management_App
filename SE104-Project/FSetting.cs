@@ -11,23 +11,13 @@ namespace SE104_Project
 {
     public partial class FSetting : Form
     {
-        private static FSetting instance;
+        public delegate void LogoutClickedEventHandler();
+        public event LogoutClickedEventHandler LogoutClicked;
         public FSetting()
         {
             InitializeComponent();
         }
-        public static FSetting Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new FSetting();
-                }
-                return instance;
-            }
-
-        }
+     
         public void Loadpanel(object userControl)
         {
             if (this.pnMain.Controls.Count > 0)
@@ -70,6 +60,13 @@ namespace SE104_Project
         public void btnBack_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)      
+        {            
+            LogoutClicked?.Invoke();
+            this.Close();
+            
         }
     }
 }

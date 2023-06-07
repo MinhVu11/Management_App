@@ -17,5 +17,21 @@ namespace SE104_Project
             tbWorkspaceName.Text = data.Rows[0]["Workspace_name"].ToString().Trim();
         }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            SQLHandler.Instance.ExcuteNonQuery($"Update Workspace set Workspace_name='{tbWorkspaceName.Text}' where Workspace_id={FWorkspace.Workspace_id}");
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // Xử lý kết quả từ hộp thoại MessageBox
+            if (result == DialogResult.Yes)
+            {
+                //
+            }
+            
+        }
     }
 }

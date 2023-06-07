@@ -22,7 +22,7 @@ namespace SE104_Project
 
         }
 
-        private void Workspace_Load(object sender, EventArgs e)
+        public void Workspace_Load(object sender, EventArgs e)
         {
             FLogin lg = new FLogin();
             if (lg.ShowDialog() == DialogResult.OK)
@@ -32,6 +32,15 @@ namespace SE104_Project
                 {
                     // load anything here
                     Loadspaces();
+
+                    if (pnCreateTask.Controls.Count > 0)
+                    {
+                        pnCreateTask.Controls.Clear();
+                    }
+                    US_CreateTask us = new US_CreateTask();
+                    pnCreateTask.Controls.Add((Control)us);
+                    us.Dock = DockStyle.Fill;
+                    pnCreateTask.BringToFront();
                 }
             }
 
@@ -39,7 +48,7 @@ namespace SE104_Project
 
         private void Loadspaces()
         {
-            if(flpSpace.Controls.Count > 0)
+            if (flpSpace.Controls.Count > 0)
             {
                 flpSpace.Controls.Clear();
             }
@@ -99,8 +108,9 @@ namespace SE104_Project
         {
             if (this.pnMain.Controls.Count > 0)
             {
-                this.pnMain.Controls.RemoveAt(0);
+                this.pnMain.Controls.Clear();
             }
+            this.pnMain.Controls.Add(pnCreateTask);
             Form f = Form as Form;
             f.TopLevel = false;
             f.Dock = DockStyle.Fill;
@@ -110,20 +120,25 @@ namespace SE104_Project
         }
         private void btnSpace_Click(object sender, EventArgs e)
         {
-            /*
+
             showPanelSpace = !showPanelSpace;
             tooglePanels();
-            */
-            OpenChildForm(new FTasks());
+
+            //OpenChildForm(new FTasks());
         }
         private void btnNewSpace_Click(object sender, EventArgs e)
         {
-            FCreateSpace f=new FCreateSpace();
-            f.ShowDialog();            
+            FCreateSpace f = new FCreateSpace();
+            if (f.ShowDialog() == DialogResult.OK)
+            {
+                Loadspaces();
+            }
+
         }
         private void btnRealSpace_Click(object sender, EventArgs e)
         {
-            Loadform(new FSpace());
+            Button button = (Button)sender;
+            Loadform(new FSpace((int)button.Tag));
         }
         private void btnMinimize_Click(object sender, EventArgs e)
         {
@@ -176,20 +191,36 @@ namespace SE104_Project
         {
             Loadform(new FDashboard());
         }
+        private void btnSetting_Click(object sender, EventArgs e)
+        {
+            FSetting fSetting = new FSetting();
+            fSetting.LogoutClicked += FSetting_LogoutClicked;
+            if (fSetting.ShowDialog() == DialogResult.OK)
+            {
+                // load again 
+                Loadspaces();
+            }
+        }
 
         // Open Child Form
         private Form activeForm = null;
-        private void OpenChildForm(Form childForm)
+        //private void OpenChildForm(Form childForm)
+        //{
+        //    if (activeForm != null)
+        //        activeForm.Close();
+        //    activeForm = childForm;
+        //    childForm.TopLevel = false;
+        //    childForm.FormBorderStyle = FormBorderStyle.None;
+        //    childForm.Dock = DockStyle.Fill;
+        //    panelChildForm.Controls.Add(childForm); 
+        //    panelChildForm.Tag = childForm;
+        //    childForm.Show();
+        //}
+
+        private void FSetting_LogoutClicked()
         {
-            if (activeForm != null)
-                activeForm.Close();
-            activeForm = childForm;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            panelChildForm.Controls.Add(childForm); 
-            panelChildForm.Tag = childForm;
-            childForm.Show();
+            // Gọi hàm Workspace_Load
+            Workspace_Load(this, EventArgs.Empty);
         }
 
         private void btnCreateTask_Click(object sender, EventArgs e)

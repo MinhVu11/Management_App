@@ -34,7 +34,6 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.pnBody = new System.Windows.Forms.Panel();
             this.pnMain = new System.Windows.Forms.Panel();
-            this.panelChildForm = new System.Windows.Forms.Panel();
             this.pnSlideBar = new System.Windows.Forms.Panel();
             this.btnSetting = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
@@ -43,6 +42,7 @@
             this.pn = new System.Windows.Forms.Panel();
             this.btnHome = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.pnCreateTask = new System.Windows.Forms.Panel();
             this.pnHead.SuspendLayout();
             this.pnBody.SuspendLayout();
             this.pnMain.SuspendLayout();
@@ -58,7 +58,6 @@
             this.pnHead.Controls.Add(this.btnExit);
             this.pnHead.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnHead.Location = new System.Drawing.Point(0, 0);
-            this.pnHead.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnHead.Name = "pnHead";
             this.pnHead.Size = new System.Drawing.Size(1111, 30);
             this.pnHead.TabIndex = 0;
@@ -110,31 +109,21 @@
             this.pnBody.Controls.Add(this.pnMain);
             this.pnBody.Controls.Add(this.pnSlideBar);
             this.pnBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnBody.Location = new System.Drawing.Point(0, 47);
-            this.pnBody.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnBody.Location = new System.Drawing.Point(0, 30);
             this.pnBody.Name = "pnBody";
             this.pnBody.Size = new System.Drawing.Size(1111, 556);
             this.pnBody.TabIndex = 2;
             // 
             // pnMain
             // 
-            this.pnMain.Controls.Add(this.panel1);
-            this.pnMain.Controls.Add(this.panelChildForm);
+            this.pnMain.Controls.Add(this.pnCreateTask);
             this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMain.ForeColor = System.Drawing.Color.White;
-            this.pnMain.Location = new System.Drawing.Point(315, 0);
-            this.pnMain.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnMain.Location = new System.Drawing.Point(210, 0);
             this.pnMain.Name = "pnMain";
             this.pnMain.Size = new System.Drawing.Size(901, 556);
             this.pnMain.TabIndex = 1;
             this.pnMain.Resize += new System.EventHandler(this.pnMain_Resize);
-            // 
-            // panelChildForm
-            // 
-            this.panelChildForm.Location = new System.Drawing.Point(0, 0);
-            this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(885, 578);
-            this.panelChildForm.TabIndex = 0;
             // 
             // pnSlideBar
             // 
@@ -146,7 +135,6 @@
             this.pnSlideBar.Controls.Add(this.pn);
             this.pnSlideBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnSlideBar.Location = new System.Drawing.Point(0, 0);
-            this.pnSlideBar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnSlideBar.Name = "pnSlideBar";
             this.pnSlideBar.Size = new System.Drawing.Size(210, 556);
             this.pnSlideBar.TabIndex = 0;
@@ -171,7 +159,7 @@
             this.btnDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashboard.Location = new System.Drawing.Point(0, 181);
             this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(315, 55);
+            this.btnDashboard.Size = new System.Drawing.Size(210, 35);
             this.btnDashboard.TabIndex = 3;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.UseVisualStyleBackColor = true;
@@ -183,7 +171,7 @@
             this.flpSpace.Dock = System.Windows.Forms.DockStyle.Top;
             this.flpSpace.Location = new System.Drawing.Point(0, 181);
             this.flpSpace.Name = "flpSpace";
-            this.flpSpace.Size = new System.Drawing.Size(315, 0);
+            this.flpSpace.Size = new System.Drawing.Size(210, 0);
             this.flpSpace.TabIndex = 2;
             // 
             // btnSpace
@@ -193,7 +181,7 @@
             this.btnSpace.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSpace.Location = new System.Drawing.Point(0, 146);
             this.btnSpace.Name = "btnSpace";
-            this.btnSpace.Size = new System.Drawing.Size(315, 55);
+            this.btnSpace.Size = new System.Drawing.Size(210, 35);
             this.btnSpace.TabIndex = 1;
             this.btnSpace.Text = "Space";
             this.btnSpace.UseVisualStyleBackColor = true;
@@ -205,7 +193,6 @@
             this.pn.Controls.Add(this.button1);
             this.pn.Dock = System.Windows.Forms.DockStyle.Top;
             this.pn.Location = new System.Drawing.Point(0, 0);
-            this.pn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pn.Name = "pn";
             this.pn.Size = new System.Drawing.Size(210, 146);
             this.pn.TabIndex = 0;
@@ -240,15 +227,23 @@
             this.button1.Text = "Notification";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // pnCreateTask
+            // 
+            this.pnCreateTask.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnCreateTask.BackColor = System.Drawing.Color.White;
+            this.pnCreateTask.Location = new System.Drawing.Point(794, 499);
+            this.pnCreateTask.Name = "pnCreateTask";
+            this.pnCreateTask.Size = new System.Drawing.Size(104, 54);
+            this.pnCreateTask.TabIndex = 0;
+            // 
             // FWorkspace
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1111, 586);
             this.Controls.Add(this.pnBody);
             this.Controls.Add(this.pnHead);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FWorkspace";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Workspace";
@@ -278,6 +273,6 @@
         private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel pnCreateTask;
     }
 }
-
