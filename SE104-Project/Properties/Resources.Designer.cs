@@ -103,9 +103,39 @@ namespace SE104_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap next {
+            get {
+                object obj = ResourceManager.GetObject("next", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap previous {
+            get {
+                object obj = ResourceManager.GetObject("previous", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap pslogo {
             get {
                 object obj = ResourceManager.GetObject("pslogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap send {
+            get {
+                object obj = ResourceManager.GetObject("send", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

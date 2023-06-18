@@ -8,6 +8,7 @@ namespace SE104_Project
     public partial class FSpace_US_List : UserControl
     {
         private int spaceid;
+        
         public int Spaceid
         {
             get
@@ -33,6 +34,13 @@ namespace SE104_Project
         {
             DataTable tasklist = SQLHandler.Instance.GetData($"SELECT  Task.* from Task, Task_Space WHERE Task.Task_id = Task_Space.Task_id AND Space_id = {spaceid}");
             dgvTodoList.DataSource= tasklist;
+
+            DataGridViewColumn taskIDColumn = new DataGridViewTextBoxColumn();
+            taskIDColumn.DataPropertyName = "Task_id";
+            taskIDColumn.Name = "TaskID";
+            
+            dgvTodoList.Columns.Add(taskIDColumn);
+            taskIDColumn.Visible = false; // Ẩn cột TaskID
 
             DataGridViewColumn nameColumn = new DataGridViewTextBoxColumn();
             nameColumn.DataPropertyName = "Task_name";
@@ -61,7 +69,7 @@ namespace SE104_Project
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvTodoList.Rows[e.RowIndex];
-                FEditTask f = new FEditTask(); 
+                FEditTask f = new FEditTask(Convert.ToInt32(dgvTodoList.Rows[e.RowIndex].Cells["TaskID"].Value)); 
                 if (f.ShowDialog() == DialogResult.OK)
                 {
                     LoadTaskList();

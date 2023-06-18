@@ -38,6 +38,7 @@ namespace SE104_Project
             else
             {
                 FWorkspace.User_id = (int)data.Rows[0]["User_id"];
+                
                 MessageBox.Show($"Hello {tbUserName.Text}");
                 DialogResult = DialogResult.OK;
 

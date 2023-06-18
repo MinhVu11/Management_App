@@ -8,12 +8,14 @@ WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_CATALOG = 'SE104';
 
 
 drop table Membership
+drop table participants
 drop table Meeting
 drop table GroupSchedule
 drop table Group_Member
 drop table Assignment
 drop table groups
 drop table Personal_Schedule
+drop table Notifications
 drop table Task_Space
 drop table Task
 drop table Workspace_Space
@@ -58,6 +60,11 @@ Create table Task_Space(
 
 Create Table Assignment (
     Assigment_id int identity(1,1) Primary key,
+    Task_id int References Task(Task_id),
+    User_id int References Users(User_id)
+)
+Create table ShareTask(
+	Assigment_id int identity(1,1) Primary key,
     Task_id int References Task(Task_id),
     User_id int References Users(User_id)
 )
@@ -119,17 +126,37 @@ create table GroupSchedule(
 
 create table Meeting(
 	Meeting_id int identity(1,1) primary key,
-    Group_id int,
 	Meeting_name char(40),
 	Meeting_description char(100),
 	Meeting_start_time datetime,
-	Meeting_end_time datetime,
-	Organizer_id int,
+	Meeting_end_time datetime,	
 	Meeting_status char(40),
-	Agenda char(500),
-	FOREIGN KEY(Group_id) REFERENCES Groups(Group_id),
+	Organizer_id int,
+	Space_id int,
+	Agenda char(500), 	
+	Workspace_id int,
+	FOREIGN KEY(Workspace_id) REFERENCES Workspace(Workspace_id),
+	FOREIGN KEY(Space_id) REFERENCES Space(Space_id),
 	FOREIGN KEY(Organizer_id) REFERENCES Users(User_id),
 )
+
+create table Participants(
+	Meeting_id int,
+	User_id int,
+	FOREIGN KEY(User_id) REFERENCES Users(User_id),
+	FOREIGN KEY(Meeting_id) REFERENCES Meeting(Meeting_id),
+	PRIMARY KEY(Meeting_id,User_id)
+)
+
+CREATE TABLE Notifications (
+    Notification_id INT IDENTITY(1, 1) PRIMARY KEY,
+    Notification_type CHAR(40),
+    Notification_message CHAR(100),
+    Event_id INT,
+    User_id INT REFERENCES Users(User_id),
+    IsRead BIT DEFAULT 0,
+    Created_at DATETIME,
+);
 
 
 Insert into Users(User_fullname,User_name,User_password,User_email,User_birthday) values ('Dang Cong Phu','CongPhu',123456,'congphu@gmail.com','18/11/2003')
@@ -157,7 +184,10 @@ Insert into Groups(Space_id) values(4)
 Insert into Group_Member(Group_id,User_id,role) values(1,1,'admin')
 Insert into Group_Member(Group_id,User_id,role) values(2,1,'member')
 Insert into Group_Member(Group_id,User_id,role) values(3,1,'member')
-Insert into Task values('Task1','Báo cáo dự án','2008-11-11 13:23:44','2008-11-12 13:23:44','Khẩn cấp')
+Insert into Task values('Task1','Báo cáo dự án','2023-11-11 13:23:44','2023-11-12 13:23:44','Khẩn cấp')
+Insert into Task values('Task2','report','2023-11-11 13:23:44','2023-11-12 13:23:44','normal')
+Insert into Task values('Task3','meeting customer','2023-11-11 13:23:44','2023-11-12 13:23:44','urgen')
+Insert into Task values('Task4','dealwith bosss','2023-11-11 13:23:44','2023-11-12 13:23:44','extremly')
 Insert into Task_Space values(1,1)
 
 
@@ -172,14 +202,10 @@ select * from Workspace_space
 select * from membership
 select * from task
 select * from Task_Space
-
-select users.* from MemberShip,users where users.User_id=MemberShip.User_id and Workspace_id=1
-Select Users.* from Users,Groups,Group_Member,Workspace_Space where  Groups.Group_id= Group_Member.Group_id and Workspace_Space.Space_id=2 and Groups.Space_id=2 and Workspace_Space.Workspace_id=1  and Group_Member.User_id=Users.User_id
-Select * from Workspace_Space,Space where Workspace_Space.Space_id=Space.Space_id and Workspace_id=1 and Space.Space_type='Public'
+select * from meeting
+select * from assignment
 
 
-SELECT Task_name AS Name, Task_description AS Description, Task_end_time AS "Due Date", Task_status AS Status
-FROM Task, Task_Space
-WHERE Task.Task_id = Task_Space.Task_id AND Space_id = 1;
+SELECT TOP 1 * FROM meeting ORDER BY Meeting_id DESC;
 
-SELECT  Task.* from Task, Task_Space WHERE Task.Task_id = Task_Space.Task_id AND Space_id =1 and 
+select users.* from Groups,Group_Member,Users where Groups.Group_id=Group_Member.Group_id and Users.User_id =Group_Member.User_id and Groups.Space_id=2

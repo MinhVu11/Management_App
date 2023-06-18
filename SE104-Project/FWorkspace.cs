@@ -11,6 +11,7 @@ namespace SE104_Project
     {
         public static int User_id;
         public static int Workspace_id;
+        public static bool isAdmin = false;
         private bool showPanelSpace = false;
         private bool isDragging = false;
         private Point lastMousePosition;
@@ -202,20 +203,6 @@ namespace SE104_Project
             }
         }
 
-        // Open Child Form
-        private Form activeForm = null;
-        //private void OpenChildForm(Form childForm)
-        //{
-        //    if (activeForm != null)
-        //        activeForm.Close();
-        //    activeForm = childForm;
-        //    childForm.TopLevel = false;
-        //    childForm.FormBorderStyle = FormBorderStyle.None;
-        //    childForm.Dock = DockStyle.Fill;
-        //    panelChildForm.Controls.Add(childForm); 
-        //    panelChildForm.Tag = childForm;
-        //    childForm.Show();
-        //}
 
         private void FSetting_LogoutClicked()
         {
@@ -223,9 +210,19 @@ namespace SE104_Project
             Workspace_Load(this, EventArgs.Empty);
         }
 
-        private void btnCreateTask_Click(object sender, EventArgs e)
-        {
+        private void btnHome_Click(object sender, EventArgs e)
+        {   
+            Loadform(new FHome(User_id));
+        }
 
+        private void btnNotification_Click(object sender, EventArgs e)
+        {
+            Loadform(new FNotification());
+        }
+
+        private void btnMeeting_Click(object sender, EventArgs e)
+        {
+            Loadform(new FMeeting());   
         }
     }
 }

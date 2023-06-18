@@ -22,9 +22,11 @@ namespace SE104_Project
             lbDays.Text = numday + "";
         }
 
-        private void displayEvent()
+        public void displayEvent(Event ev)
         {
-
+            Label deadline= new Label();
+            deadline.Text = $"Duedate of{ev.Name}in {ev.Enddate}";
+            flpEvent.Controls.Add(deadline);
         }
     }
 }

@@ -17,7 +17,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>SE104_Project</RootNamespace>
     <AssemblyName>SE104-Project</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <PublishUrl>publish\</PublishUrl>
@@ -66,6 +66,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -77,6 +78,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Event.cs" />
+    <Compile Include="FCreateMeeting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FCreateMeeting.Designer.cs">
+      <DependentUpon>FCreateMeeting.cs</DependentUpon>
+    </Compile>
     <Compile Include="FCreateWorkspace.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +120,12 @@
     <Compile Include="FCreateSpace.Designer.cs">
       <DependentUpon>FCreateSpace.cs</DependentUpon>
     </Compile>
+    <Compile Include="FHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FHome.Designer.cs">
+      <DependentUpon>FHome.cs</DependentUpon>
+    </Compile>
     <Compile Include="FLoginWorspace.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,11 +138,47 @@
     <Compile Include="FCreateTask.Designer.cs">
       <DependentUpon>FCreateTask.cs</DependentUpon>
     </Compile>
-    <Compile Include="FSpace-US-Calendar.cs">
+    <Compile Include="FMeeting-US-ListMeeting.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FSpace-US-Calendar.Designer.cs">
-      <DependentUpon>FSpace-US-Calendar.cs</DependentUpon>
+    <Compile Include="FMeeting-US-ListMeeting.Designer.cs">
+      <DependentUpon>FMeeting-US-ListMeeting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FSpace-US-Setting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FSpace-US-Setting.Designer.cs">
+      <DependentUpon>FSpace-US-Setting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="US-EditMeeting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="US-EditMeeting.Designer.cs">
+      <DependentUpon>US-EditMeeting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FMeeting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMeeting.Designer.cs">
+      <DependentUpon>FMeeting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FNotification-US-Notification.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FNotification-US-Notification.Designer.cs">
+      <DependentUpon>FNotification-US-Notification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FNotification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FNotification.Designer.cs">
+      <DependentUpon>FNotification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="US-Calendar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="US-Calendar.Designer.cs">
+      <DependentUpon>US-Calendar.cs</DependentUpon>
     </Compile>
     <Compile Include="FSpace-US-ToDoList.cs">
       <SubType>UserControl</SubType>
@@ -219,7 +268,16 @@
     <Compile Include="US-Days.Designer.cs">
       <DependentUpon>US-Days.cs</DependentUpon>
     </Compile>
+    <Compile Include="US-Hour.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="US-Hour.Designer.cs">
+      <DependentUpon>US-Hour.cs</DependentUpon>
+    </Compile>
     <Compile Include="Workspace.cs" />
+    <EmbeddedResource Include="FCreateMeeting.resx">
+      <DependentUpon>FCreateMeeting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FCreateTask.resx">
       <DependentUpon>FCreateTask.cs</DependentUpon>
     </EmbeddedResource>
@@ -232,17 +290,35 @@
     <EmbeddedResource Include="FEditMember.resx">
       <DependentUpon>FEditMember.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FEditTask.resx">
+      <DependentUpon>FEditTask.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FFogotPassword.resx">
       <DependentUpon>FFogotPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FCreateSpace.resx">
       <DependentUpon>FCreateSpace.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FHome.resx">
+      <DependentUpon>FHome.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FLogin.resx">
       <DependentUpon>FLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FLoginWorspace.resx">
       <DependentUpon>FLoginWorspace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FMeeting-US-ListMeeting.resx">
+      <DependentUpon>FMeeting-US-ListMeeting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FMeeting.resx">
+      <DependentUpon>FMeeting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FNotification-US-Notification.resx">
+      <DependentUpon>FNotification-US-Notification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FNotification.resx">
+      <DependentUpon>FNotification.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FSetting-US-People.resx">
       <DependentUpon>FSetting-US-People.cs</DependentUpon>
@@ -259,8 +335,11 @@
     <EmbeddedResource Include="FSetting.resx">
       <DependentUpon>FSetting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FSpace-US-Calendar.resx">
-      <DependentUpon>FSpace-US-Calendar.cs</DependentUpon>
+    <EmbeddedResource Include="FSpace-US-Setting.resx">
+      <DependentUpon>FSpace-US-Setting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="US-Calendar.resx">
+      <DependentUpon>US-Calendar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FSpace-US-ToDoList.resx">
       <DependentUpon>FSpace-US-ToDoList.cs</DependentUpon>
@@ -295,6 +374,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="US-Days.resx">
       <DependentUpon>US-Days.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="US-EditMeeting.resx">
+      <DependentUpon>US-EditMeeting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="US-Hour.resx">
+      <DependentUpon>US-Hour.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
@@ -334,6 +419,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\x_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\previous.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\send.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

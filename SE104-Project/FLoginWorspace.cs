@@ -64,6 +64,16 @@ namespace SE104_Project
         {
             Button btn=(Button)sender;
             FWorkspace.Workspace_id = (int)btn.Tag;
+            DataTable admin = SQLHandler.Instance.GetData($"Select * from membership where user_id={FWorkspace.User_id} and workspace_id={FWorkspace.Workspace_id}");
+            if (admin.Rows[0]["role"].ToString().Trim().ToLower()=="admin")
+            {
+                FWorkspace.isAdmin= true;
+            }
+            else
+            {
+                FWorkspace.isAdmin = false;
+            } 
+                
             DialogResult = DialogResult.OK;
         }
     }

@@ -14,6 +14,7 @@ namespace SE104_Project
         public FDashboard()
         {
             InitializeComponent();
+            
         }
     }
 }

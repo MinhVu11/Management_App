@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace SE104_Project
@@ -9,6 +11,8 @@ namespace SE104_Project
     {
         private int highlightedIndex = -1; // Lưu chỉ số của mục đang được trỏ vào
         private int chosen_User;
+        private Dictionary<int, string> userDictionary = new Dictionary<int, string>();
+
         public FCreateTask()
         {
             InitializeComponent();
@@ -19,27 +23,14 @@ namespace SE104_Project
         private void Load()
         {
             // Load comboBox Danh sach Space
-            // 
+
             DataTable Spaces_data = SQLHandler.Instance.GetData($"select Space.* from Space, Workspace_Space where Space.Space_id = Workspace_Space.Space_id and Workspace_Space.Workspace_id = {FWorkspace.Workspace_id} ");
             cBIn.DataSource = Spaces_data;
             cBIn.DisplayMember = "Space_name";
             cBIn.ValueMember = "Space_id";
 
 
-            //// Load Combo Box Add People
-            //DataRowView selectedRow = (DataRowView)cBIn.SelectedItem;
 
-            //int Selected_Space_id = (int)cBIn.SelectedValue;
-            //DataTable spacemember = new DataTable();
-            //if (selectedRow["Space_type"].ToString()=="Public")
-            //{
-            //    spacemember = SQLHandler.Instance.GetData("Select * from ");
-            //}    
-
-            //DataTable User_data = SQLHandler.Instance.GetData($"select * from USers, Space, Space_User where {Selected_Space_id} = Space_Users.Space_id and Space_Users.User_id = Users.User_id ");
-            //cBAddPeople.DataSource = User_data;
-            //cBAddPeople.DisplayMember = "User_name";
-            //cBAddPeople.ValueMember = "User_id";
         }
 
         private void buttonCreateTask_Click(object sender, EventArgs e)
@@ -50,16 +41,19 @@ namespace SE104_Project
             }
             else
             {
-                SQLHandler.Instance.ExcuteNonQuery($"Insert into Task(Task_name, Task_description, Task_status, Task_start time, Task_end_time) values('{tbTaskName.Text}', '{rTBTaskDescription.Text}', '{cBStatus.Text}', '{dTPStartDate.Text}', '{dTPEndDate.Text}' ) ");
-                DataTable Task_Space_data = SQLHandler.Instance.GetData($"select TOP 1 * from Task_Space Order by Task_Space_id DESC");
+                SQLHandler.Instance.ExcuteNonQuery($"Insert into Task(Task_name, Task_description, Task_status, Task_start_time, Task_end_time) values('{tbTaskName.Text}', '{rTBTaskDescription.Text}', '{cBStatus.Text}', '{dTPStartDate.Value}', '{dTPEndDate.Value}' ) ");
+
                 DataTable Task_data = SQLHandler.Instance.GetData($"select TOP 1 * from Task Order by Task_id DESC");
-                SQLHandler.Instance.ExcuteNonQuery($"Insert into Task_Space(Task_id, Space_id) values ({Task_data.Rows[0]},{cBIn})");
+                SQLHandler.Instance.ExcuteNonQuery($"Insert into Task_Space(Task_id, Space_id) values ({Task_data.Rows[0]["Task_id"]},{cBIn.SelectedValue})");
 
                 foreach (object item in lBPeopleList.Items)
                 {
-                    SQLHandler.Instance.ExcuteNonQuery($"Insert into Assignment( Task_id, User_id) values ('{Task_Space_data.Rows[0]} + 1', '')");
+                    // get userid from dictionary
+                    int id = userDictionary.FirstOrDefault(x => x.Value == item.ToString()).Key;
+                    SQLHandler.Instance.ExcuteNonQuery($"Insert into Assignment( Task_id, User_id) values ({Convert.ToInt32(Task_data.Rows[0]["Task_id"])},{id})");
 
                 }
+                
                 Close();
             }
         }
@@ -67,21 +61,20 @@ namespace SE104_Project
         private void cBAddPeople_SelectionChangeCommitted(object sender, EventArgs e)
         {
             DataRowView selectedRow = (DataRowView)cBAddPeople.SelectedItem;
-            DataTable Chosen_User_Name = SQLHandler.Instance.GetData($"Select USer_name from Users where Users.USer_id = {selectedRow["User_id"]}");
+            DataTable Chosen_User = SQLHandler.Instance.GetData($"Select * from Users where Users.USer_id = {selectedRow["User_id"]}");
 
-            if (Chosen_User_Name.Rows.Count > 0)
+            if (Chosen_User.Rows.Count > 0)
             {
-                string userName = Chosen_User_Name.Rows[0]["User_name"].ToString();
-                if (lBPeopleList.Items.Contains(userName))
+
+                if (lBPeopleList.Items.Contains(Chosen_User.Rows[0]["User_name"].ToString().Trim()))
                 {
                     MessageBox.Show("User has been added");
                 }
                 else
                 {
-                    lBPeopleList.Items.Add(userName);
+                    userDictionary.Add(Convert.ToInt32(Chosen_User.Rows[0]["User_id"]), Chosen_User.Rows[0]["User_name"].ToString().Trim());
+                    lBPeopleList.Items.Add(Chosen_User.Rows[0]["User_name"].ToString().Trim());
                 }
-
-
             }
 
         }
@@ -126,6 +119,7 @@ namespace SE104_Project
             if (highlightedIndex >= 0 && highlightedIndex < lBPeopleList.Items.Count) // Kiểm tra xem chỉ số có hợp lệ hay không
             {
                 lBPeopleList.Items.RemoveAt(highlightedIndex); // Xóa mục tại chỉ số đã được trỏ vào
+
                 highlightedIndex = -1; // Đặt lại trạng thái của mục đang được trỏ vào
 
                 lBPeopleList.Invalidate(); // Yêu cầu ListBox vẽ lại để loại bỏ dấu x

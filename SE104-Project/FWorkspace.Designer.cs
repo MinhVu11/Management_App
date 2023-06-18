@@ -34,15 +34,16 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.pnBody = new System.Windows.Forms.Panel();
             this.pnMain = new System.Windows.Forms.Panel();
+            this.pnCreateTask = new System.Windows.Forms.Panel();
             this.pnSlideBar = new System.Windows.Forms.Panel();
-            this.btnSetting = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
+            this.btnSetting = new System.Windows.Forms.Button();
+            this.btnMeeting = new System.Windows.Forms.Button();
             this.flpSpace = new System.Windows.Forms.FlowLayoutPanel();
             this.btnSpace = new System.Windows.Forms.Button();
             this.pn = new System.Windows.Forms.Panel();
             this.btnHome = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pnCreateTask = new System.Windows.Forms.Panel();
+            this.btnNotification = new System.Windows.Forms.Button();
             this.pnHead.SuspendLayout();
             this.pnBody.SuspendLayout();
             this.pnMain.SuspendLayout();
@@ -125,11 +126,21 @@
             this.pnMain.TabIndex = 1;
             this.pnMain.Resize += new System.EventHandler(this.pnMain_Resize);
             // 
+            // pnCreateTask
+            // 
+            this.pnCreateTask.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnCreateTask.BackColor = System.Drawing.Color.White;
+            this.pnCreateTask.Location = new System.Drawing.Point(794, 499);
+            this.pnCreateTask.Name = "pnCreateTask";
+            this.pnCreateTask.Size = new System.Drawing.Size(104, 54);
+            this.pnCreateTask.TabIndex = 0;
+            // 
             // pnSlideBar
             // 
             this.pnSlideBar.BackColor = System.Drawing.Color.LightSlateGray;
-            this.pnSlideBar.Controls.Add(this.btnSetting);
             this.pnSlideBar.Controls.Add(this.btnDashboard);
+            this.pnSlideBar.Controls.Add(this.btnSetting);
+            this.pnSlideBar.Controls.Add(this.btnMeeting);
             this.pnSlideBar.Controls.Add(this.flpSpace);
             this.pnSlideBar.Controls.Add(this.btnSpace);
             this.pnSlideBar.Controls.Add(this.pn);
@@ -138,6 +149,19 @@
             this.pnSlideBar.Name = "pnSlideBar";
             this.pnSlideBar.Size = new System.Drawing.Size(210, 556);
             this.pnSlideBar.TabIndex = 0;
+            // 
+            // btnDashboard
+            // 
+            this.btnDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDashboard.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashboard.Location = new System.Drawing.Point(0, 308);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(210, 47);
+            this.btnDashboard.TabIndex = 5;
+            this.btnDashboard.Text = "Dashboard";
+            this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // btnSetting
             // 
@@ -152,24 +176,24 @@
             this.btnSetting.UseVisualStyleBackColor = true;
             this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
             // 
-            // btnDashboard
+            // btnMeeting
             // 
-            this.btnDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDashboard.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDashboard.Location = new System.Drawing.Point(0, 181);
-            this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(210, 35);
-            this.btnDashboard.TabIndex = 3;
-            this.btnDashboard.Text = "Dashboard";
-            this.btnDashboard.UseVisualStyleBackColor = true;
-            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            this.btnMeeting.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMeeting.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMeeting.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMeeting.Location = new System.Drawing.Point(0, 261);
+            this.btnMeeting.Name = "btnMeeting";
+            this.btnMeeting.Size = new System.Drawing.Size(210, 47);
+            this.btnMeeting.TabIndex = 3;
+            this.btnMeeting.Text = "Meeting";
+            this.btnMeeting.UseVisualStyleBackColor = true;
+            this.btnMeeting.Click += new System.EventHandler(this.btnMeeting_Click);
             // 
             // flpSpace
             // 
             this.flpSpace.BackColor = System.Drawing.Color.SteelBlue;
             this.flpSpace.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flpSpace.Location = new System.Drawing.Point(0, 181);
+            this.flpSpace.Location = new System.Drawing.Point(0, 261);
             this.flpSpace.Name = "flpSpace";
             this.flpSpace.Size = new System.Drawing.Size(210, 0);
             this.flpSpace.TabIndex = 2;
@@ -179,9 +203,9 @@
             this.btnSpace.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSpace.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnSpace.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSpace.Location = new System.Drawing.Point(0, 146);
+            this.btnSpace.Location = new System.Drawing.Point(0, 214);
             this.btnSpace.Name = "btnSpace";
-            this.btnSpace.Size = new System.Drawing.Size(210, 35);
+            this.btnSpace.Size = new System.Drawing.Size(210, 47);
             this.btnSpace.TabIndex = 1;
             this.btnSpace.Text = "Space";
             this.btnSpace.UseVisualStyleBackColor = true;
@@ -190,11 +214,11 @@
             // pn
             // 
             this.pn.Controls.Add(this.btnHome);
-            this.pn.Controls.Add(this.button1);
+            this.pn.Controls.Add(this.btnNotification);
             this.pn.Dock = System.Windows.Forms.DockStyle.Top;
             this.pn.Location = new System.Drawing.Point(0, 0);
             this.pn.Name = "pn";
-            this.pn.Size = new System.Drawing.Size(210, 146);
+            this.pn.Size = new System.Drawing.Size(210, 214);
             this.pn.TabIndex = 0;
             // 
             // btnHome
@@ -202,39 +226,30 @@
             this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHome.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnHome.FlatAppearance.BorderSize = 0;
-            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHome.ForeColor = System.Drawing.Color.Black;
-            this.btnHome.Location = new System.Drawing.Point(0, 76);
+            this.btnHome.Location = new System.Drawing.Point(0, 120);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(210, 35);
-            this.btnHome.TabIndex = 0;
+            this.btnHome.Size = new System.Drawing.Size(210, 47);
+            this.btnHome.TabIndex = 1;
             this.btnHome.Text = "Home";
             this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
-            // button1
+            // btnNotification
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(0, 111);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(210, 35);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Notification";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // pnCreateTask
-            // 
-            this.pnCreateTask.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnCreateTask.BackColor = System.Drawing.Color.White;
-            this.pnCreateTask.Location = new System.Drawing.Point(794, 499);
-            this.pnCreateTask.Name = "pnCreateTask";
-            this.pnCreateTask.Size = new System.Drawing.Size(104, 54);
-            this.pnCreateTask.TabIndex = 0;
+            this.btnNotification.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNotification.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnNotification.FlatAppearance.BorderSize = 0;
+            this.btnNotification.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNotification.ForeColor = System.Drawing.Color.Black;
+            this.btnNotification.Location = new System.Drawing.Point(0, 167);
+            this.btnNotification.Name = "btnNotification";
+            this.btnNotification.Size = new System.Drawing.Size(210, 47);
+            this.btnNotification.TabIndex = 0;
+            this.btnNotification.Text = "Notification";
+            this.btnNotification.UseVisualStyleBackColor = true;
+            this.btnNotification.Click += new System.EventHandler(this.btnNotification_Click);
             // 
             // FWorkspace
             // 
@@ -270,9 +285,10 @@
         private System.Windows.Forms.Button btnMinimize;
         private System.Windows.Forms.Button btnMaximize;
         private System.Windows.Forms.Button btnSetting;
-        private System.Windows.Forms.Button btnDashboard;
-        private System.Windows.Forms.Button btnHome;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnMeeting;
+        private System.Windows.Forms.Button btnNotification;
         private System.Windows.Forms.Panel pnCreateTask;
+        private System.Windows.Forms.Button btnHome;
+        private System.Windows.Forms.Button btnDashboard;
     }
 }

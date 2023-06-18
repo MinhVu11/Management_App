@@ -108,16 +108,25 @@ namespace SE104_Project
 
         private void btnInvite_Click(object sender, EventArgs e)
         {
-            DataTable data = SQLHandler.Instance.GetData($"Select * from Users where User_email='{tbAddMember.Text}'");
-            if (data.Rows.Count == 0)
+            if (FWorkspace.isAdmin)
             {
-                MessageBox.Show("User is not exist!");
+                DataTable data = SQLHandler.Instance.GetData($"Select * from Users where User_email='{tbAddMember.Text}'");
+                if (data.Rows.Count == 0)
+                {
+                    MessageBox.Show("User is not exist!");
+                }
+                else
+                {
+                    SQLHandler.Instance.ExcuteNonQuery($"Insert into Membership values ({(int)data.Rows[0]["User_id"]},{FWorkspace.Workspace_id},'{cbbRole.SelectedItem}')");
+                    LoadDataGridView();
+                }
+
             }
             else
             {
-                SQLHandler.Instance.ExcuteNonQuery($"Insert into Membership values ({(int)data.Rows[0]["User_id"]},{FWorkspace.Workspace_id},'{cbbRole.SelectedItem}')");
-                LoadDataGridView();
+                MessageBox.Show("Bạn không có quyền admin");
             }
+
         }
 
         private void dgvMembers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

@@ -19,19 +19,36 @@ namespace SE104_Project
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            SQLHandler.Instance.ExcuteNonQuery($"Update Workspace set Workspace_name='{tbWorkspaceName.Text}' where Workspace_id={FWorkspace.Workspace_id}");
+            if (FWorkspace.isAdmin)
+            {
+                SQLHandler.Instance.ExcuteNonQuery($"Update Workspace set Workspace_name='{tbWorkspaceName.Text}' where Workspace_id={FWorkspace.Workspace_id}");
+            }
+            else
+            {
+                MessageBox.Show("Bạn không có quyền admin");
+            }
+
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            // Xử lý kết quả từ hộp thoại MessageBox
-            if (result == DialogResult.Yes)
+            if (FWorkspace.isAdmin)
             {
-                //
+                DialogResult result = MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                // Xử lý kết quả từ hộp thoại MessageBox
+                if (result == DialogResult.Yes)
+                {
+                    //
+                }
+
             }
-            
+            else
+            {
+                MessageBox.Show("Bạn không có quyền admin");
+            }
+
+
         }
     }
 }

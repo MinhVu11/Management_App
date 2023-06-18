@@ -1,6 +1,6 @@
 ﻿namespace SE104_Project
 {
-    partial class FSpace_US_Calendar
+    partial class US_Calendar
     {
         /// <summary> 
         /// Required designer variable.
@@ -61,6 +61,7 @@
             // 
             // btnNext
             // 
+            this.btnNext.ForeColor = System.Drawing.Color.Black;
             this.btnNext.Location = new System.Drawing.Point(687, 476);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
@@ -71,6 +72,7 @@
             // 
             // btnPrevious
             // 
+            this.btnPrevious.ForeColor = System.Drawing.Color.Black;
             this.btnPrevious.Location = new System.Drawing.Point(606, 476);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(75, 23);
