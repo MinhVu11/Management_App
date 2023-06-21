@@ -32,11 +32,11 @@
             this.cBAddPeople = new System.Windows.Forms.ComboBox();
             this.cBStatus = new System.Windows.Forms.ComboBox();
             this.labelStatus = new System.Windows.Forms.Label();
-            this.buttonCreateTask = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.dTPEndDate = new System.Windows.Forms.DateTimePicker();
             this.labelEndDate = new System.Windows.Forms.Label();
             this.lbStartDate = new System.Windows.Forms.Label();
-            this.cBIn = new System.Windows.Forms.ComboBox();
+            this.cbMoveto = new System.Windows.Forms.ComboBox();
             this.labelIn = new System.Windows.Forms.Label();
             this.labelFor = new System.Windows.Forms.Label();
             this.lableTaskDescription = new System.Windows.Forms.Label();
@@ -44,6 +44,8 @@
             this.tbTaskName = new System.Windows.Forms.TextBox();
             this.lbTaskName = new System.Windows.Forms.Label();
             this.btnShare = new System.Windows.Forms.Button();
+            this.btnAttachfile = new System.Windows.Forms.Button();
+            this.flpFileName = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // lBPeopleList
@@ -62,7 +64,7 @@
             this.cBAddPeople.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cBAddPeople.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cBAddPeople.FormattingEnabled = true;
-            this.cBAddPeople.Location = new System.Drawing.Point(138, 135);
+            this.cBAddPeople.Location = new System.Drawing.Point(724, 137);
             this.cBAddPeople.Name = "cBAddPeople";
             this.cBAddPeople.Size = new System.Drawing.Size(231, 26);
             this.cBAddPeople.Sorted = true;
@@ -95,22 +97,23 @@
             this.labelStatus.TabIndex = 31;
             this.labelStatus.Text = "Status";
             // 
-            // buttonCreateTask
+            // btnUpdate
             // 
-            this.buttonCreateTask.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCreateTask.ForeColor = System.Drawing.Color.White;
-            this.buttonCreateTask.Location = new System.Drawing.Point(722, 354);
-            this.buttonCreateTask.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.buttonCreateTask.Name = "buttonCreateTask";
-            this.buttonCreateTask.Size = new System.Drawing.Size(231, 93);
-            this.buttonCreateTask.TabIndex = 30;
-            this.buttonCreateTask.Text = "Update";
-            this.buttonCreateTask.UseVisualStyleBackColor = false;
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnUpdate.Location = new System.Drawing.Point(722, 354);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(231, 93);
+            this.btnUpdate.TabIndex = 30;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // dTPEndDate
             // 
             this.dTPEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dTPEndDate.Location = new System.Drawing.Point(341, 18);
+            this.dTPEndDate.Location = new System.Drawing.Point(362, 17);
             this.dTPEndDate.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dTPEndDate.Name = "dTPEndDate";
             this.dTPEndDate.Size = new System.Drawing.Size(247, 24);
@@ -121,7 +124,7 @@
             this.labelEndDate.AutoSize = true;
             this.labelEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEndDate.ForeColor = System.Drawing.Color.White;
-            this.labelEndDate.Location = new System.Drawing.Point(246, 18);
+            this.labelEndDate.Location = new System.Drawing.Point(267, 17);
             this.labelEndDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelEndDate.Name = "labelEndDate";
             this.labelEndDate.Size = new System.Drawing.Size(69, 18);
@@ -141,23 +144,23 @@
             this.lbStartDate.TabIndex = 26;
             this.lbStartDate.Text = "Created";
             // 
-            // cBIn
+            // cbMoveto
             // 
-            this.cBIn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cBIn.FormattingEnabled = true;
-            this.cBIn.Location = new System.Drawing.Point(721, 138);
-            this.cBIn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cBIn.Name = "cBIn";
-            this.cBIn.Size = new System.Drawing.Size(232, 26);
-            this.cBIn.TabIndex = 25;
+            this.cbMoveto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMoveto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMoveto.FormattingEnabled = true;
+            this.cbMoveto.Location = new System.Drawing.Point(114, 134);
+            this.cbMoveto.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cbMoveto.Name = "cbMoveto";
+            this.cbMoveto.Size = new System.Drawing.Size(232, 26);
+            this.cbMoveto.TabIndex = 25;
             // 
             // labelIn
             // 
             this.labelIn.AutoSize = true;
             this.labelIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelIn.ForeColor = System.Drawing.Color.White;
-            this.labelIn.Location = new System.Drawing.Point(654, 138);
+            this.labelIn.Location = new System.Drawing.Point(44, 137);
             this.labelIn.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelIn.Name = "labelIn";
             this.labelIn.Size = new System.Drawing.Size(62, 18);
@@ -169,7 +172,7 @@
             this.labelFor.AutoSize = true;
             this.labelFor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFor.ForeColor = System.Drawing.Color.White;
-            this.labelFor.Location = new System.Drawing.Point(47, 135);
+            this.labelFor.Location = new System.Drawing.Point(633, 137);
             this.labelFor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelFor.Name = "labelFor";
             this.labelFor.Size = new System.Drawing.Size(79, 18);
@@ -194,7 +197,7 @@
             this.rTBTaskDescription.Location = new System.Drawing.Point(47, 215);
             this.rTBTaskDescription.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.rTBTaskDescription.Name = "rTBTaskDescription";
-            this.rTBTaskDescription.Size = new System.Drawing.Size(559, 209);
+            this.rTBTaskDescription.Size = new System.Drawing.Size(559, 128);
             this.rTBTaskDescription.TabIndex = 21;
             this.rTBTaskDescription.Text = "";
             // 
@@ -231,6 +234,29 @@
             this.btnShare.TabIndex = 35;
             this.btnShare.Text = "Share";
             this.btnShare.UseVisualStyleBackColor = false;
+            this.btnShare.Click += new System.EventHandler(this.btnShare_Click);
+            // 
+            // btnAttachfile
+            // 
+            this.btnAttachfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAttachfile.ForeColor = System.Drawing.Color.White;
+            this.btnAttachfile.Location = new System.Drawing.Point(50, 365);
+            this.btnAttachfile.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnAttachfile.Name = "btnAttachfile";
+            this.btnAttachfile.Size = new System.Drawing.Size(129, 33);
+            this.btnAttachfile.TabIndex = 36;
+            this.btnAttachfile.Text = "Attach file";
+            this.btnAttachfile.UseVisualStyleBackColor = false;
+            this.btnAttachfile.Click += new System.EventHandler(this.btnAttachfile_Click);
+            // 
+            // flpFileName
+            // 
+            this.flpFileName.AutoScroll = true;
+            this.flpFileName.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpFileName.Location = new System.Drawing.Point(211, 354);
+            this.flpFileName.Name = "flpFileName";
+            this.flpFileName.Size = new System.Drawing.Size(200, 93);
+            this.flpFileName.TabIndex = 37;
             // 
             // FEditTask
             // 
@@ -238,16 +264,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(50)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1012, 459);
+            this.Controls.Add(this.flpFileName);
+            this.Controls.Add(this.btnAttachfile);
             this.Controls.Add(this.btnShare);
             this.Controls.Add(this.lBPeopleList);
             this.Controls.Add(this.cBAddPeople);
             this.Controls.Add(this.cBStatus);
             this.Controls.Add(this.labelStatus);
-            this.Controls.Add(this.buttonCreateTask);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.dTPEndDate);
             this.Controls.Add(this.labelEndDate);
             this.Controls.Add(this.lbStartDate);
-            this.Controls.Add(this.cBIn);
+            this.Controls.Add(this.cbMoveto);
             this.Controls.Add(this.labelIn);
             this.Controls.Add(this.labelFor);
             this.Controls.Add(this.lableTaskDescription);
@@ -269,11 +297,11 @@
         private System.Windows.Forms.ComboBox cBAddPeople;
         private System.Windows.Forms.ComboBox cBStatus;
         private System.Windows.Forms.Label labelStatus;
-        private System.Windows.Forms.Button buttonCreateTask;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.DateTimePicker dTPEndDate;
         private System.Windows.Forms.Label labelEndDate;
         private System.Windows.Forms.Label lbStartDate;
-        private System.Windows.Forms.ComboBox cBIn;
+        private System.Windows.Forms.ComboBox cbMoveto;
         private System.Windows.Forms.Label labelIn;
         private System.Windows.Forms.Label labelFor;
         private System.Windows.Forms.Label lableTaskDescription;
@@ -281,5 +309,7 @@
         private System.Windows.Forms.TextBox tbTaskName;
         private System.Windows.Forms.Label lbTaskName;
         private System.Windows.Forms.Button btnShare;
+        private System.Windows.Forms.Button btnAttachfile;
+        private System.Windows.Forms.FlowLayoutPanel flpFileName;
     }
 }

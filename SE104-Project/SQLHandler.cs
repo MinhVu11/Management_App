@@ -39,6 +39,20 @@ namespace SE104_Project
             command.ExecuteNonQuery();
             connection.Close();
         }
+        public void ExecuteNonQueryWithParameters(string query, List<SqlParameter> parameters)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddRange(parameters.ToArray());
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
         public DataTable GetData(string query)
         {
             connection.Open();

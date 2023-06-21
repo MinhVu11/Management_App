@@ -45,6 +45,8 @@
             this.lBPeopleList = new System.Windows.Forms.ListBox();
             this.labelStartDate = new System.Windows.Forms.Label();
             this.dTPStartDate = new System.Windows.Forms.DateTimePicker();
+            this.btnAttachfile = new System.Windows.Forms.Button();
+            this.flpFileName = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // lbTaskName
@@ -235,12 +237,35 @@
             this.dTPStartDate.Size = new System.Drawing.Size(247, 24);
             this.dTPStartDate.TabIndex = 10;
             // 
+            // btnAttachfile
+            // 
+            this.btnAttachfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAttachfile.Location = new System.Drawing.Point(397, 299);
+            this.btnAttachfile.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnAttachfile.Name = "btnAttachfile";
+            this.btnAttachfile.Size = new System.Drawing.Size(129, 33);
+            this.btnAttachfile.TabIndex = 19;
+            this.btnAttachfile.Text = "Attach file";
+            this.btnAttachfile.UseVisualStyleBackColor = false;
+            this.btnAttachfile.Click += new System.EventHandler(this.btnAttachfile_Click);
+            // 
+            // flpFileName
+            // 
+            this.flpFileName.AutoScroll = true;
+            this.flpFileName.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpFileName.Location = new System.Drawing.Point(397, 338);
+            this.flpFileName.Name = "flpFileName";
+            this.flpFileName.Size = new System.Drawing.Size(200, 100);
+            this.flpFileName.TabIndex = 20;
+            // 
             // FCreateTask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(50)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(990, 449);
+            this.Controls.Add(this.flpFileName);
+            this.Controls.Add(this.btnAttachfile);
             this.Controls.Add(this.lBPeopleList);
             this.Controls.Add(this.cBAddPeople);
             this.Controls.Add(this.cBStatus);
@@ -288,5 +313,7 @@
         private System.Windows.Forms.ComboBox cBAddPeople;
         private System.Windows.Forms.Label labelStartDate;
         private System.Windows.Forms.DateTimePicker dTPStartDate;
+        private System.Windows.Forms.Button btnAttachfile;
+        private System.Windows.Forms.FlowLayoutPanel flpFileName;
     }
 }

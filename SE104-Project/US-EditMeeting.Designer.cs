@@ -36,7 +36,7 @@
             this.dtpEndtime = new System.Windows.Forms.DateTimePicker();
             this.cbStart = new System.Windows.Forms.ComboBox();
             this.dtpStarttime = new System.Windows.Forms.DateTimePicker();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tbLocation = new System.Windows.Forms.TextBox();
             this.tbRequired = new System.Windows.Forms.TextBox();
             this.tbOrganizer = new System.Windows.Forms.TextBox();
             this.tbTitle = new System.Windows.Forms.TextBox();
@@ -52,6 +52,8 @@
             this.tbDesciption = new System.Windows.Forms.TextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.flpFileName = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnAttachfile = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -233,15 +235,15 @@
             this.dtpStarttime.Size = new System.Drawing.Size(159, 22);
             this.dtpStarttime.TabIndex = 35;
             // 
-            // textBox5
+            // tbLocation
             // 
-            this.textBox5.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(131, 219);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(500, 20);
-            this.textBox5.TabIndex = 34;
+            this.tbLocation.BackColor = System.Drawing.SystemColors.Control;
+            this.tbLocation.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbLocation.Location = new System.Drawing.Point(131, 219);
+            this.tbLocation.Name = "tbLocation";
+            this.tbLocation.Size = new System.Drawing.Size(500, 20);
+            this.tbLocation.TabIndex = 34;
             // 
             // tbRequired
             // 
@@ -383,9 +385,9 @@
             // btnUpdate
             // 
             this.btnUpdate.ForeColor = System.Drawing.Color.Black;
-            this.btnUpdate.Location = new System.Drawing.Point(490, 392);
+            this.btnUpdate.Location = new System.Drawing.Point(519, 392);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(159, 38);
+            this.btnUpdate.Size = new System.Drawing.Size(130, 38);
             this.btnUpdate.TabIndex = 45;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -394,17 +396,43 @@
             // btnDelete
             // 
             this.btnDelete.ForeColor = System.Drawing.Color.Black;
-            this.btnDelete.Location = new System.Drawing.Point(21, 392);
+            this.btnDelete.Location = new System.Drawing.Point(383, 392);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(159, 38);
+            this.btnDelete.Size = new System.Drawing.Size(118, 38);
             this.btnDelete.TabIndex = 46;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            // 
+            // flpFileName
+            // 
+            this.flpFileName.AutoScroll = true;
+            this.flpFileName.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpFileName.ForeColor = System.Drawing.Color.Black;
+            this.flpFileName.Location = new System.Drawing.Point(113, 394);
+            this.flpFileName.Name = "flpFileName";
+            this.flpFileName.Size = new System.Drawing.Size(200, 93);
+            this.flpFileName.TabIndex = 48;
+            // 
+            // btnAttachfile
+            // 
+            this.btnAttachfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAttachfile.ForeColor = System.Drawing.Color.Black;
+            this.btnAttachfile.Location = new System.Drawing.Point(6, 394);
+            this.btnAttachfile.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnAttachfile.Name = "btnAttachfile";
+            this.btnAttachfile.Size = new System.Drawing.Size(100, 33);
+            this.btnAttachfile.TabIndex = 47;
+            this.btnAttachfile.Text = "Attach file";
+            this.btnAttachfile.UseVisualStyleBackColor = false;
+            this.btnAttachfile.Visible = false;
+            this.btnAttachfile.Click += new System.EventHandler(this.btnAttachfile_Click);
             // 
             // US_EditMeeting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.flpFileName);
+            this.Controls.Add(this.btnAttachfile);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.panel4);
@@ -417,7 +445,7 @@
             this.Controls.Add(this.dtpEndtime);
             this.Controls.Add(this.cbStart);
             this.Controls.Add(this.dtpStarttime);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.tbLocation);
             this.Controls.Add(this.tbRequired);
             this.Controls.Add(this.tbOrganizer);
             this.Controls.Add(this.tbTitle);
@@ -448,7 +476,7 @@
         private System.Windows.Forms.DateTimePicker dtpEndtime;
         private System.Windows.Forms.ComboBox cbStart;
         private System.Windows.Forms.DateTimePicker dtpStarttime;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox tbLocation;
         private System.Windows.Forms.TextBox tbRequired;
         private System.Windows.Forms.TextBox tbOrganizer;
         private System.Windows.Forms.TextBox tbTitle;
@@ -464,5 +492,7 @@
         private System.Windows.Forms.TextBox tbDesciption;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.FlowLayoutPanel flpFileName;
+        private System.Windows.Forms.Button btnAttachfile;
     }
 }

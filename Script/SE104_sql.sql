@@ -1,4 +1,4 @@
-﻿create DATABASE ManagementApp_DTB
+﻿drop 
 create database SE104
 use SE104
 
@@ -6,7 +6,7 @@ SELECT TABLE_NAME
 FROM INFORMATION_SCHEMA.TABLES
 WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_CATALOG = 'SE104';
 
-
+drop table shareTask
 drop table Membership
 drop table participants
 drop table Meeting
@@ -63,8 +63,9 @@ Create Table Assignment (
     Task_id int References Task(Task_id),
     User_id int References Users(User_id)
 )
+
 Create table ShareTask(
-	Assigment_id int identity(1,1) Primary key,
+	ShareTask_id int identity(1,1) Primary key,
     Task_id int References Task(Task_id),
     User_id int References Users(User_id)
 )
@@ -131,6 +132,7 @@ create table Meeting(
 	Meeting_start_time datetime,
 	Meeting_end_time datetime,	
 	Meeting_status char(40),
+	Meeting_location char(40),
 	Organizer_id int,
 	Space_id int,
 	Agenda char(500), 	
@@ -157,6 +159,48 @@ CREATE TABLE Notifications (
     IsRead BIT DEFAULT 0,
     Created_at DATETIME,
 );
+
+
+CREATE TRIGGER TaskAssignmentNotification
+ON Assignment
+AFTER INSERT
+AS
+BEGIN
+    -- Lấy thông tin về task và user_id từ bảng Assignment
+    DECLARE @TaskName CHAR(40);
+    DECLARE @UserName CHAR(40);
+
+    SELECT @TaskName = Task.Task_name, @UserName = Users.User_name
+    FROM inserted
+    INNER JOIN Task ON Task.Task_id = inserted.Task_id
+    INNER JOIN Users ON Users.User_id = inserted.User_id;
+
+    -- Thêm thông báo vào bảng Notifications
+    INSERT INTO Notifications (Notification_type, Notification_message, Event_id, User_id, Created_at)
+    VALUES ('Task', 'You have been assigned to task "' + @TaskName + '"', (SELECT Task_id FROM inserted), (SELECT User_id FROM inserted), GETDATE());
+END
+GO
+
+CREATE TRIGGER MeetingParticipantsNotification
+ON Participants
+AFTER INSERT
+AS
+BEGIN
+    -- Lấy thông tin về meeting và user_id từ bảng Participants
+    DECLARE @MeetingName CHAR(40);
+    DECLARE @UserName CHAR(40);
+
+    SELECT @MeetingName = Meeting.Meeting_name, @UserName = Users.User_name
+    FROM inserted
+    INNER JOIN Meeting ON Meeting.Meeting_id = inserted.Meeting_id
+    INNER JOIN Users ON Users.User_id = inserted.User_id;
+
+    -- Thêm thông báo vào bảng Notifications
+    INSERT INTO Notifications (Notification_type, Notification_message, Event_id, User_id, Created_at)
+    VALUES ('Meeting', 'You have been added as a participant in meeting "' + @MeetingName + '"', (SELECT Meeting_id FROM inserted), (SELECT User_id FROM inserted), GETDATE());
+END
+GO
+
 
 
 Insert into Users(User_fullname,User_name,User_password,User_email,User_birthday) values ('Dang Cong Phu','CongPhu',123456,'congphu@gmail.com','18/11/2003')
@@ -204,8 +248,7 @@ select * from task
 select * from Task_Space
 select * from meeting
 select * from assignment
+select * from notifications
 
 
-SELECT TOP 1 * FROM meeting ORDER BY Meeting_id DESC;
-
-select users.* from Groups,Group_Member,Users where Groups.Group_id=Group_Member.Group_id and Users.User_id =Group_Member.User_id and Groups.Space_id=2
+Select * from Notifications where User_id=1

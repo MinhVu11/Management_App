@@ -15,7 +15,7 @@ namespace SE104_Project
         public void displayEvent(Event ev)
         {
             Label deadline = new Label();
-            deadline.Text = $"Duedate of{ev.Name}in {ev.Enddate}";
+            deadline.Text = $"Duedate of {ev.Name}in {ev.Enddate}";
             flpEvents.Controls.Add(deadline);
         }
     }

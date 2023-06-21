@@ -77,6 +77,7 @@
             this.Name = "FNotification_US_Notification";
             this.Size = new System.Drawing.Size(695, 85);
             this.Load += new System.EventHandler(this.FNotification_US_Notification_Load);
+            this.Click += new System.EventHandler(this.FNotification_US_Notification_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 

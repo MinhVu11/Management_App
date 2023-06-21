@@ -47,6 +47,7 @@
             // 
             this.flpEvents.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flpEvents.Dock = System.Windows.Forms.DockStyle.Right;
+            this.flpEvents.ForeColor = System.Drawing.Color.Black;
             this.flpEvents.Location = new System.Drawing.Point(50, 0);
             this.flpEvents.Name = "flpEvents";
             this.flpEvents.Size = new System.Drawing.Size(270, 50);
