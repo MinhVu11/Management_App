@@ -51,6 +51,13 @@ create table Task(
 	Task_end_time datetime,
 	Task_status char(40),
 )
+CREATE TABLE TaskAttachments
+(
+    AttachmentID INT IDENTITY(1,1) PRIMARY KEY,
+    FileName NVARCHAR(100) NOT NULL,
+    FileData VARBINARY(MAX),
+    Task_id int REFERENCES Task(Task_id),
+)
 
 Create table Task_Space(
 	Task_Space_id int identity(1, 1) primary key,
@@ -140,6 +147,13 @@ create table Meeting(
 	FOREIGN KEY(Workspace_id) REFERENCES Workspace(Workspace_id),
 	FOREIGN KEY(Space_id) REFERENCES Space(Space_id),
 	FOREIGN KEY(Organizer_id) REFERENCES Users(User_id),
+)
+CREATE TABLE MeetingAttachments
+(
+    AttachmentID INT IDENTITY(1,1) PRIMARY KEY,    
+    FileName NVARCHAR(100) NOT NULL,
+    FileData VARBINARY(MAX),
+    Meeting_id int REFERENCES Meeting(Meeting_id),
 )
 
 create table Participants(
