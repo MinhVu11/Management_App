@@ -33,7 +33,7 @@ namespace SE104_Project
             {
                 DateTime starttime = dtpStarttime.Value.Date.Add(TimeSpan.Parse(cbStart.SelectedItem.ToString()));
                 DateTime endtime = dtpEndtime.Value.Date.Add(TimeSpan.Parse(cbEnd.SelectedItem.ToString()));
-                SQLHandler.Instance.ExcuteNonQuery($"Insert into Meeting(Organizer_id,Meeting_name,Meeting_Start_time,Meeting_end_time,Meeting_description,Meeting_status,Workspace_id) values({FWorkspace.User_id},'{tbTitle.Text}','{starttime}','{endtime}','{tbDesciption.Text}','UnChecked',{FWorkspace.Workspace_id})");
+                SQLHandler.Instance.ExcuteNonQuery($"Insert into Meeting(Organizer_id,Meeting_name,Meeting_Start_time,Meeting_end_time,Meeting_description,Meeting_status,Meeting_location,Workspace_id) values({FWorkspace.User_id},'{tbTitle.Text}','{starttime}','{endtime}','{tbDesciption.Text}','UnChecked','{tbLocation.Text}',{FWorkspace.Workspace_id})");
                 DataTable meeting = SQLHandler.Instance.GetData("SELECT TOP 1 * FROM meeting ORDER BY Meeting_id DESC");
 
                 SQLHandler.Instance.ExcuteNonQuery($"Insert into Participants values({meeting.Rows[0]["meeting_id"]},{meeting.Rows[0]["Organizer_id"]})");
@@ -41,8 +41,11 @@ namespace SE104_Project
                 foreach(string str in strings)
                 {
                     DataTable participant =SQLHandler.Instance.GetData($"Select * from Users where User_email='{str}'");
-                    SQLHandler.Instance.ExcuteNonQuery($"Insert into Participants values({meeting.Rows[0]["Meeting_id"]},{participant.Rows[0]["User_id"]})");
-                }    
+                    if (Convert.ToInt32(meeting.Rows[0]["Organizer_id"]) != Convert.ToInt32(participant.Rows[0]["User_id"]))
+                    {     
+                        SQLHandler.Instance.ExcuteNonQuery($"Insert into Participants values({meeting.Rows[0]["Meeting_id"]},{participant.Rows[0]["User_id"]})");
+                    }    
+                }
 
 
                 DialogResult = DialogResult.OK;

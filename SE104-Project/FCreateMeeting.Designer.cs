@@ -38,7 +38,7 @@
             this.tbTitle = new System.Windows.Forms.TextBox();
             this.tbOrganizer = new System.Windows.Forms.TextBox();
             this.tbRequired = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tbLocation = new System.Windows.Forms.TextBox();
             this.dtpStarttime = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tbDesciption = new System.Windows.Forms.TextBox();
@@ -161,15 +161,15 @@
             this.tbRequired.TextChanged += new System.EventHandler(this.tbRequired_TextChanged);
             this.tbRequired.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbRequired_KeyDown);
             // 
-            // textBox5
+            // tbLocation
             // 
-            this.textBox5.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(203, 215);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(617, 20);
-            this.textBox5.TabIndex = 12;
+            this.tbLocation.BackColor = System.Drawing.SystemColors.Control;
+            this.tbLocation.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbLocation.Location = new System.Drawing.Point(203, 215);
+            this.tbLocation.Name = "tbLocation";
+            this.tbLocation.Size = new System.Drawing.Size(617, 20);
+            this.tbLocation.TabIndex = 12;
             // 
             // dtpStarttime
             // 
@@ -385,7 +385,7 @@
             this.Controls.Add(this.cbStart);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dtpStarttime);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.tbLocation);
             this.Controls.Add(this.tbRequired);
             this.Controls.Add(this.tbOrganizer);
             this.Controls.Add(this.tbTitle);
@@ -420,7 +420,7 @@
         private System.Windows.Forms.TextBox tbTitle;
         private System.Windows.Forms.TextBox tbOrganizer;
         private System.Windows.Forms.TextBox tbRequired;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox tbLocation;
         private System.Windows.Forms.DateTimePicker dtpStarttime;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox tbDesciption;

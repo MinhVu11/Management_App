@@ -73,9 +73,36 @@ namespace SE104_Project
         {
             dgv.Columns.Clear();
             meetinglist = SQLHandler.Instance.GetData($"Select Meeting.* from meeting,participants where meeting.meeting_id=participants.Meeting_id and participants.user_id={user_id}");
-            dgv.AutoGenerateColumns = true;
+          
+            dgv.AutoGenerateColumns = false;
             meetinglist.TableName = "meetinglist";
             dgv.DataSource = meetinglist;
+            DataGridViewColumn meetingIDColumn = new DataGridViewTextBoxColumn();
+            meetingIDColumn.DataPropertyName = "Meeting_id";
+            meetingIDColumn.Name = "MeetingID";
+
+            dgv.Columns.Add(meetingIDColumn);
+            meetingIDColumn.Visible = false; 
+
+            DataGridViewColumn nameColumn = new DataGridViewTextBoxColumn();
+            nameColumn.DataPropertyName = "Meeting_name";
+            nameColumn.HeaderText = "Name";
+            dgv.Columns.Add(nameColumn);
+
+            DataGridViewColumn startTimeColumn = new DataGridViewTextBoxColumn();
+            startTimeColumn.DataPropertyName = "Meeting_start_time";
+            startTimeColumn.HeaderText = "Start time";
+            dgv.Columns.Add(startTimeColumn);
+
+            DataGridViewColumn endTimeColumn = new DataGridViewTextBoxColumn();
+            endTimeColumn.DataPropertyName = "Meeting_end_time";
+            endTimeColumn.HeaderText = "End time";
+            dgv.Columns.Add(endTimeColumn);
+
+            DataGridViewColumn locationColumn = new DataGridViewTextBoxColumn();
+            locationColumn.DataPropertyName = "Meeting_location";
+            locationColumn.HeaderText = "Status";
+            dgv.Columns.Add(locationColumn);
         }
 
 
@@ -119,6 +146,7 @@ namespace SE104_Project
                         break;
                     }
                 }
+                
                 flpCalendar.Controls.Add(hour);
 
             }
@@ -154,7 +182,14 @@ namespace SE104_Project
             DataTable data = (DataTable)dgv.DataSource;
             if (data.TableName == "meetinglist")
             {
-
+                DataGridViewRow row = dgv.Rows[e.RowIndex];
+                US_EditMeeting us = new US_EditMeeting(Convert.ToInt32(dgv.Rows[e.RowIndex].Cells["MeetingId"].Value));
+                Form f = new Form();
+                f.Controls.Add(us);
+                f.AutoSize = true;
+                us.Dock = DockStyle.Fill;
+                f.ShowDialog();
+                
             }
             else
             {

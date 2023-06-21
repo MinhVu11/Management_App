@@ -144,6 +144,12 @@
     <Compile Include="FMeeting-US-ListMeeting.Designer.cs">
       <DependentUpon>FMeeting-US-ListMeeting.cs</DependentUpon>
     </Compile>
+    <Compile Include="FShareTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FShareTask.Designer.cs">
+      <DependentUpon>FShareTask.cs</DependentUpon>
+    </Compile>
     <Compile Include="FSpace-US-Setting.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -335,6 +341,9 @@
     <EmbeddedResource Include="FSetting.resx">
       <DependentUpon>FSetting.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FShareTask.resx">
+      <DependentUpon>FShareTask.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FSpace-US-Setting.resx">
       <DependentUpon>FSpace-US-Setting.cs</DependentUpon>
     </EmbeddedResource>
@@ -428,6 +437,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\send.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\businessicon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

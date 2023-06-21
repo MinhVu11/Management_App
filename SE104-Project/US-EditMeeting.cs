@@ -19,6 +19,15 @@ namespace SE104_Project
             DataTable organizer = SQLHandler.Instance.GetData($"Select * from Users where User_id={Convert.ToInt32(meetingdata.Rows[0]["Organizer_id"])}");
             tbOrganizer.Text = organizer.Rows[0]["User_email"].ToString().Trim();
             tbTitle.Text = meetingdata.Rows[0]["meeting_name"].ToString().Trim();
+            tbLocation.Text = meetingdata.Rows[0]["Meeting_location"].ToString().Trim();
+            if (meetingdata.Rows[0]["Meeting_status"].ToString().Trim().ToLower()=="checked")
+            {
+                cbCheck.Checked = true;
+            }
+            else
+            {
+                cbCheck.Checked = false;
+            }
             dtpStarttime.Value = ((DateTime)meetingdata.Rows[0]["Meeting_start_time"]).Date;
             cbStart.SelectedItem = $"{((DateTime)meetingdata.Rows[0]["Meeting_start_time"]).Hour}:{((DateTime)meetingdata.Rows[0]["Meeting_start_time"]).Minute.ToString("D2")}";
             dtpEndtime.Value = ((DateTime)meetingdata.Rows[0]["Meeting_end_time"]).Date;
@@ -55,7 +64,7 @@ namespace SE104_Project
                 SQLHandler.Instance.ExcuteNonQuery($"Update Meeting set Organizer_id={FWorkspace.User_id},Meeting_name='{tbTitle.Text}',Meeting_Start_time='{starttime}',Meeting_end_time='{endtime}',Meeting_description='{tbDesciption.Text}',Meeting_status='{check}' where Meeting_id={meeting_id}");
                 DataTable meeting = SQLHandler.Instance.GetData("SELECT TOP 1 * FROM meeting ORDER BY Meeting_id DESC");
 
-                SQLHandler.Instance.ExcuteNonQuery($"Delete from participants where Meeting_id={meeting_id}");
+                SQLHandler.Instance.ExcuteNonQuery($"Delete from participants where Meeting_id={meeting.Rows[0]["Meeting_id"]}");
                 SQLHandler.Instance.ExcuteNonQuery($"Insert into Participants values({meeting.Rows[0]["meeting_id"]},{meeting.Rows[0]["Organizer_id"]})");
                 string[] strings = tbRequired.Text.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
                 foreach (string str in strings)

@@ -36,7 +36,7 @@
             this.dtpEndtime = new System.Windows.Forms.DateTimePicker();
             this.cbStart = new System.Windows.Forms.ComboBox();
             this.dtpStarttime = new System.Windows.Forms.DateTimePicker();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tbLocation = new System.Windows.Forms.TextBox();
             this.tbRequired = new System.Windows.Forms.TextBox();
             this.tbOrganizer = new System.Windows.Forms.TextBox();
             this.tbTitle = new System.Windows.Forms.TextBox();
@@ -233,15 +233,15 @@
             this.dtpStarttime.Size = new System.Drawing.Size(159, 22);
             this.dtpStarttime.TabIndex = 35;
             // 
-            // textBox5
+            // tbLocation
             // 
-            this.textBox5.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(131, 219);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(500, 20);
-            this.textBox5.TabIndex = 34;
+            this.tbLocation.BackColor = System.Drawing.SystemColors.Control;
+            this.tbLocation.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbLocation.Location = new System.Drawing.Point(131, 219);
+            this.tbLocation.Name = "tbLocation";
+            this.tbLocation.Size = new System.Drawing.Size(500, 20);
+            this.tbLocation.TabIndex = 34;
             // 
             // tbRequired
             // 
@@ -417,7 +417,7 @@
             this.Controls.Add(this.dtpEndtime);
             this.Controls.Add(this.cbStart);
             this.Controls.Add(this.dtpStarttime);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.tbLocation);
             this.Controls.Add(this.tbRequired);
             this.Controls.Add(this.tbOrganizer);
             this.Controls.Add(this.tbTitle);
@@ -448,7 +448,7 @@
         private System.Windows.Forms.DateTimePicker dtpEndtime;
         private System.Windows.Forms.ComboBox cbStart;
         private System.Windows.Forms.DateTimePicker dtpStarttime;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox tbLocation;
         private System.Windows.Forms.TextBox tbRequired;
         private System.Windows.Forms.TextBox tbOrganizer;
         private System.Windows.Forms.TextBox tbTitle;

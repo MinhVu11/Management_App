@@ -28,34 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnMeeting = new System.Windows.Forms.Button();
-            this.btnTodo = new System.Windows.Forms.Button();
+            this.btnUnread = new System.Windows.Forms.Button();
+            this.btnAll = new System.Windows.Forms.Button();
             this.flpNotification = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
-            // btnMeeting
+            // btnUnread
             // 
-            this.btnMeeting.BackColor = System.Drawing.Color.White;
-            this.btnMeeting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMeeting.ForeColor = System.Drawing.Color.Black;
-            this.btnMeeting.Location = new System.Drawing.Point(110, 12);
-            this.btnMeeting.Name = "btnMeeting";
-            this.btnMeeting.Size = new System.Drawing.Size(78, 30);
-            this.btnMeeting.TabIndex = 8;
-            this.btnMeeting.Text = "Unread";
-            this.btnMeeting.UseVisualStyleBackColor = false;
+            this.btnUnread.BackColor = System.Drawing.Color.White;
+            this.btnUnread.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUnread.ForeColor = System.Drawing.Color.Black;
+            this.btnUnread.Location = new System.Drawing.Point(110, 12);
+            this.btnUnread.Name = "btnUnread";
+            this.btnUnread.Size = new System.Drawing.Size(78, 30);
+            this.btnUnread.TabIndex = 8;
+            this.btnUnread.Text = "UnRead";
+            this.btnUnread.UseVisualStyleBackColor = false;
+            this.btnUnread.Click += new System.EventHandler(this.btnUnread_Click);
             // 
-            // btnTodo
+            // btnAll
             // 
-            this.btnTodo.BackColor = System.Drawing.Color.White;
-            this.btnTodo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTodo.ForeColor = System.Drawing.Color.Black;
-            this.btnTodo.Location = new System.Drawing.Point(26, 12);
-            this.btnTodo.Name = "btnTodo";
-            this.btnTodo.Size = new System.Drawing.Size(78, 30);
-            this.btnTodo.TabIndex = 7;
-            this.btnTodo.Text = "All";
-            this.btnTodo.UseVisualStyleBackColor = false;
+            this.btnAll.BackColor = System.Drawing.Color.White;
+            this.btnAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAll.ForeColor = System.Drawing.Color.Black;
+            this.btnAll.Location = new System.Drawing.Point(26, 12);
+            this.btnAll.Name = "btnAll";
+            this.btnAll.Size = new System.Drawing.Size(78, 30);
+            this.btnAll.TabIndex = 7;
+            this.btnAll.Text = "All";
+            this.btnAll.UseVisualStyleBackColor = false;
+            this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
             // 
             // flpNotification
             // 
@@ -71,8 +73,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(901, 556);
             this.Controls.Add(this.flpNotification);
-            this.Controls.Add(this.btnMeeting);
-            this.Controls.Add(this.btnTodo);
+            this.Controls.Add(this.btnUnread);
+            this.Controls.Add(this.btnAll);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FNotification";
             this.Text = "FNotification";
@@ -83,8 +85,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnMeeting;
-        private System.Windows.Forms.Button btnTodo;
+        private System.Windows.Forms.Button btnUnread;
+        private System.Windows.Forms.Button btnAll;
         private System.Windows.Forms.FlowLayoutPanel flpNotification;
     }
 }

@@ -118,7 +118,16 @@ namespace SE104_Project
         {
             if (highlightedIndex >= 0 && highlightedIndex < lBPeopleList.Items.Count) // Kiểm tra xem chỉ số có hợp lệ hay không
             {
+                var itemToRemove = userDictionary.FirstOrDefault(x => x.Value == lBPeopleList.Items[highlightedIndex].ToString());
+
                 lBPeopleList.Items.RemoveAt(highlightedIndex); // Xóa mục tại chỉ số đã được trỏ vào
+
+
+                
+                if (itemToRemove.Key != 0)
+                {
+                    userDictionary.Remove(itemToRemove.Key);
+                }
 
                 highlightedIndex = -1; // Đặt lại trạng thái của mục đang được trỏ vào
 
