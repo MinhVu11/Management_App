@@ -110,7 +110,7 @@
             this.llbFogotPS.Size = new System.Drawing.Size(205, 23);
             this.llbFogotPS.TabIndex = 12;
             this.llbFogotPS.TabStop = true;
-            this.llbFogotPS.Text = "Forgot Password?";
+            this.llbFogotPS.Text = "Fogot Password?";
             this.llbFogotPS.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbFogotPS_LinkClicked);
             // 
             // llbRegister
@@ -234,9 +234,9 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(65, 196);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 20);
+            this.label5.Size = new System.Drawing.Size(89, 20);
             this.label5.TabIndex = 7;
-            this.label5.Text = "Password";
+            this.label5.Text = "UserName";
             // 
             // label2
             // 
@@ -283,9 +283,9 @@
             // pbLogo
             // 
             this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
-            this.pbLogo.Location = new System.Drawing.Point(12, 21);
+            this.pbLogo.Location = new System.Drawing.Point(37, 19);
             this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(186, 135);
+            this.pbLogo.Size = new System.Drawing.Size(131, 127);
             this.pbLogo.TabIndex = 0;
             this.pbLogo.TabStop = false;
             // 
