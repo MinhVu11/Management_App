@@ -9,6 +9,7 @@ WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_CATALOG = 'SE104';
 drop table shareTask
 drop table Membership
 drop table participants
+drop table meetingattachments
 drop table Meeting
 drop table GroupSchedule
 drop table Group_Member
@@ -141,12 +142,10 @@ create table Meeting(
 	Meeting_status char(40),
 	Meeting_location char(40),
 	Organizer_id int,
-	Space_id int,
-	Agenda char(500), 	
 	Workspace_id int,
 	FOREIGN KEY(Workspace_id) REFERENCES Workspace(Workspace_id),
-	FOREIGN KEY(Space_id) REFERENCES Space(Space_id),
 	FOREIGN KEY(Organizer_id) REFERENCES Users(User_id),
+	Space_id int REFERENCES Space(Space_id),
 )
 CREATE TABLE MeetingAttachments
 (
@@ -154,6 +153,7 @@ CREATE TABLE MeetingAttachments
     FileName NVARCHAR(100) NOT NULL,
     FileData VARBINARY(MAX),
     Meeting_id int REFERENCES Meeting(Meeting_id),
+	
 )
 
 create table Participants(
@@ -261,6 +261,7 @@ select * from membership
 select * from task
 select * from Task_Space
 select * from meeting
+select * from MeetingAttachments
 select * from assignment
 select * from notifications
 
