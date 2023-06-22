@@ -54,6 +54,7 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.flpFileName = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAttachfile = new System.Windows.Forms.Button();
+            this.btnMoveTo = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -396,7 +397,7 @@
             // btnDelete
             // 
             this.btnDelete.ForeColor = System.Drawing.Color.Black;
-            this.btnDelete.Location = new System.Drawing.Point(383, 392);
+            this.btnDelete.Location = new System.Drawing.Point(395, 392);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(118, 38);
             this.btnDelete.TabIndex = 46;
@@ -427,10 +428,25 @@
             this.btnAttachfile.Visible = false;
             this.btnAttachfile.Click += new System.EventHandler(this.btnAttachfile_Click);
             // 
+            // btnMoveTo
+            // 
+            this.btnMoveTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMoveTo.ForeColor = System.Drawing.Color.Black;
+            this.btnMoveTo.Location = new System.Drawing.Point(3, 433);
+            this.btnMoveTo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnMoveTo.Name = "btnMoveTo";
+            this.btnMoveTo.Size = new System.Drawing.Size(100, 33);
+            this.btnMoveTo.TabIndex = 49;
+            this.btnMoveTo.Text = "Move to";
+            this.btnMoveTo.UseVisualStyleBackColor = false;
+            this.btnMoveTo.Visible = false;
+            this.btnMoveTo.Click += new System.EventHandler(this.btnMoveTo_Click);
+            // 
             // US_EditMeeting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnMoveTo);
             this.Controls.Add(this.flpFileName);
             this.Controls.Add(this.btnAttachfile);
             this.Controls.Add(this.btnDelete);
@@ -494,5 +510,6 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.FlowLayoutPanel flpFileName;
         private System.Windows.Forms.Button btnAttachfile;
+        private System.Windows.Forms.Button btnMoveTo;
     }
 }

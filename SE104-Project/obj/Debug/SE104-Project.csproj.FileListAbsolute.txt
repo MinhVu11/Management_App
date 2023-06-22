@@ -40,3 +40,6 @@ C:\Users\USER\source\repos\Management_App\SE104-Project\obj\Debug\SE104-Project.
 C:\Users\USER\source\repos\Management_App\SE104-Project\obj\Debug\SE104-Project.csproj.CopyComplete
 C:\Users\USER\source\repos\Management_App\SE104-Project\obj\Debug\SE104-Project.exe
 C:\Users\USER\source\repos\Management_App\SE104-Project\obj\Debug\SE104-Project.pdb
+C:\Users\USER\source\repos\Management_App\SE104-Project\obj\Debug\SE104_Project.FMoveAgenda.resources
+C:\Users\USER\source\repos\Management_App\SE104-Project\obj\Debug\SE104_Project.FSpace_US_Meeting.resources
+C:\Users\USER\source\repos\Management_App\SE104-Project\obj\Debug\SE104_Project.US_Agenda.resources

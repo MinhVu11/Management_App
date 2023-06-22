@@ -138,17 +138,35 @@
     <Compile Include="FMeeting-US-ListMeeting.Designer.cs">
       <DependentUpon>FMeeting-US-ListMeeting.cs</DependentUpon>
     </Compile>
+    <Compile Include="FMoveAgenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMoveAgenda.Designer.cs">
+      <DependentUpon>FMoveAgenda.cs</DependentUpon>
+    </Compile>
     <Compile Include="FShareTask.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FShareTask.Designer.cs">
       <DependentUpon>FShareTask.cs</DependentUpon>
     </Compile>
+    <Compile Include="FSpace-US-Meeting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FSpace-US-Meeting.Designer.cs">
+      <DependentUpon>FSpace-US-Meeting.cs</DependentUpon>
+    </Compile>
     <Compile Include="FSpace-US-Setting.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="FSpace-US-Setting.Designer.cs">
       <DependentUpon>FSpace-US-Setting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="US-Agenda.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="US-Agenda.Designer.cs">
+      <DependentUpon>US-Agenda.cs</DependentUpon>
     </Compile>
     <Compile Include="US-EditMeeting.cs">
       <SubType>UserControl</SubType>
@@ -311,6 +329,9 @@
     <EmbeddedResource Include="FMeeting.resx">
       <DependentUpon>FMeeting.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FMoveAgenda.resx">
+      <DependentUpon>FMoveAgenda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FNotification-US-Notification.resx">
       <DependentUpon>FNotification-US-Notification.cs</DependentUpon>
     </EmbeddedResource>
@@ -335,8 +356,14 @@
     <EmbeddedResource Include="FShareTask.resx">
       <DependentUpon>FShareTask.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FSpace-US-Meeting.resx">
+      <DependentUpon>FSpace-US-Meeting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FSpace-US-Setting.resx">
       <DependentUpon>FSpace-US-Setting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="US-Agenda.resx">
+      <DependentUpon>US-Agenda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="US-Calendar.resx">
       <DependentUpon>US-Calendar.cs</DependentUpon>

@@ -54,7 +54,7 @@ namespace SE104_Project
 
         private void btnMeeting_Click(object sender, System.EventArgs e)
         {
-
+            Loadpanel(new FSpace_US_Meeting(spaceid));
         }
 
         private void btnSetting_Click(object sender, System.EventArgs e)

@@ -50,6 +50,7 @@ namespace SE104_Project
             if (dt < DateTime.Now && cbCheck.Checked == true)
             {
                 btnAttachfile.Visible = true;
+                btnMoveTo.Visible = true;
                 // Lấy danh sách tệp tin đính kèm từ SQL Server
                 DataTable attachmentData = SQLHandler.Instance.GetData($"SELECT FileName, FileData FROM MeetingAttachments WHERE Meeting_id = {meeting_id}");
 
@@ -212,6 +213,12 @@ namespace SE104_Project
                 // Thêm thông tin về label và đường dẫn tệp tin vào Dictionary
                 fileLabels.Add(lblFileName, selectedFilePath);
             }
+        }
+
+        private void btnMoveTo_Click(object sender, EventArgs e)
+        {
+            FMoveAgenda f = new FMoveAgenda(meeting_id);
+            f.ShowDialog();
         }
     }
 }
